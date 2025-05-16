@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 logger = logging.getLogger(__name__)
 
 class DataJudAPI:
-    BASE_URL = "https://datajud-api.cnj.jus.br/api/v1"
+    BASE_URL = "https://api-publica.datajud.cnj.jus.br/api/v1"  # URL correta da API pública do DataJud
     
     # Códigos dos tribunais trabalhistas
     TRIBUNALS = {
@@ -66,7 +66,7 @@ class DataJudAPI:
             page: Número da página
             page_size: Tamanho da página
         """
-        endpoint = f"{self.BASE_URL}/decisoes"
+        endpoint = f"{self.BASE_URL}/pesquisa/metadados-processos"  # Endpoint correto para buscar processos
         
         params = {
             "dataInicial": start_date.strftime("%Y-%m-%d"),
@@ -77,7 +77,7 @@ class DataJudAPI:
         }
         
         if tribunal and tribunal in self.TRIBUNALS:
-            params["tribunal"] = self.TRIBUNALS[tribunal]
+            params["siglaTribunal"] = self.TRIBUNALS[tribunal]  # Parâmetro correto para sigla do tribunal
         if classe:
             params["classe"] = classe
         if assunto:
@@ -95,7 +95,7 @@ class DataJudAPI:
         """
         Obtém detalhes de uma decisão específica
         """
-        endpoint = f"{self.BASE_URL}/decisoes/{decision_id}"
+        endpoint = f"{self.BASE_URL}/processos/{decision_id}"  # Endpoint para detalhes do processo
         
         try:
             response = requests.get(endpoint, headers=self.headers)
