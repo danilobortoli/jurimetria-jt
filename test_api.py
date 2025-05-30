@@ -5,6 +5,7 @@ Script para testar a conexão com a API do DataJud
 
 import os
 import sys
+import requests
 from dotenv import load_dotenv
 from src.collectors.datajud_api import DataJudAPI
 from datetime import datetime, timedelta
@@ -31,38 +32,53 @@ def test_datajud_api():
         api = DataJudAPI(api_key)
         print("✅ Cliente API inicializado")
         
-        # Define período de teste (última semana)
-        end_date = datetime.now()
-        start_date = end_date - timedelta(days=7)
+        # Define período de teste (janeiro a junho de 2023)
+        start_date = datetime(2023, 1, 1)
+        end_date = datetime(2023, 6, 30)
+        tribunal = "TST"  # Testamos com o TST
         
         print(f"\nTestando busca de decisões:")
         print(f"- Período: {start_date.strftime('%Y-%m-%d')} a {end_date.strftime('%Y-%m-%d')}")
-        print(f"- Tribunal: TST")
+        print(f"- Tribunal: {tribunal}")
         print(f"- Assunto: ASSÉDIO MORAL")
         
-        # Tenta buscar decisões
-        result = api.search_decisions(
-            start_date=start_date,
-            end_date=end_date,
-            tribunal="TST",
-            assunto="ASSÉDIO MORAL",
-            page_size=5  # Busca apenas 5 resultados para teste
-        )
+        # Constrói uma query simplificada para testar acesso básico
+        query = {
+            "query": {
+                "match_all": {}
+            },
+            "size": 5
+        }
         
-        if result:
+        # Tenta fazer a busca diretamente no endpoint do Elasticsearch
+        endpoint = api.TRIBUNAL_ENDPOINTS[tribunal]
+        response = requests.post(endpoint, headers=api.headers, json=query)
+        
+        if response.status_code == 200:
+            result = response.json()
+            hits = result.get('hits', {}).get('hits', [])
+            total = result.get('hits', {}).get('total', {}).get('value', 0)
+            
             print(f"\n✅ Busca realizada com sucesso!")
-            print(f"- Total de resultados: {result.get('totalElements', 0)}")
-            print(f"- Resultados nesta página: {len(result.get('content', []))}")
+            print(f"- Total de resultados: {total}")
+            print(f"- Resultados nesta página: {len(hits)}")
             
             # Mostra primeiro resultado (se houver)
-            if result.get('content'):
-                first = result['content'][0]
+            if hits:
+                first = hits[0]['_source']
                 print(f"\nPrimeiro resultado:")
-                print(f"- ID: {first.get('id')}")
-                print(f"- Tribunal: {first.get('tribunal')}")
-                print(f"- Data: {first.get('dataJulgamento')}")
+                print(f"- ID: {hits[0].get('_id')}")
+                print(f"- Número do Processo: {first.get('numeroProcesso')}")
+                print(f"- Data: {first.get('dataAjuizamento')}")
+                
+                # Mostra algumas chaves disponíveis para ajudar a entender a estrutura
+                print(f"\nChaves disponíveis no resultado:")
+                for key in first.keys():
+                    print(f"- {key}")
+            else:
+                print("\n⚠️ Nenhum processo encontrado com o termo 'assédio moral'")
         else:
-            print("❌ Nenhum resultado retornado")
+            print(f"❌ Erro na requisição: {response.status_code} - {response.text}")
             
     except Exception as e:
         print(f"❌ Erro ao testar API: {str(e)}")

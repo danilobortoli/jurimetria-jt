@@ -54,35 +54,59 @@ class DataCollector:
         """
         logger.info("Iniciando coleta de dados do TST...")
         
-        # Define período de coleta (últimos 6 meses)
+        # Define período de coleta (desde 2016)
         end_date = datetime.now()
-        start_date = end_date - timedelta(days=180)
+        start_date = datetime(2016, 1, 1)
         
         # Busca decisões do TST
         decisions = self.datajud.get_all_decisions(
             start_date=start_date,
             end_date=end_date,
             tribunal="TST",  # Código do TST
-            classe="RECURSO DE REVISTA",  # Classe específica para assédio moral
             assunto="ASSÉDIO MORAL"  # Assunto específico
         )
         
         # Processa e formata as decisões
         processed_decisions = []
         for decision in decisions:
-            # Obtém detalhes completos da decisão
-            details = self.datajud.get_decision_details(decision["id"])
-            if details:
-                processed_decisions.append({
-                    "id": decision["id"],
-                    "tribunal": "TST",
-                    "data_julgamento": decision["dataJulgamento"],
-                    "relator": decision.get("relator", ""),
-                    "classe": decision.get("classe", ""),
-                    "assunto": decision.get("assunto", ""),
-                    "texto": details.get("texto", ""),
-                    "url": details.get("url", "")
-                })
+            # Detalhes já estão incluídos na resposta
+            # Extrai classe processual a partir do objeto classe
+            classe_obj = decision.get("classe", {})
+            classe_nome = classe_obj.get("nome", "") if isinstance(classe_obj, dict) else ""
+            
+            # Extrai assuntos
+            assuntos = decision.get("assuntos", [])
+            assunto_nomes = [a.get("nome", "") for a in assuntos if isinstance(a, dict)]
+            assunto_texto = ", ".join(assunto_nomes)
+            
+            # Extrai o movimento mais recente (se houver)
+            movimentos = decision.get("movimentos", [])
+            movimentos.sort(key=lambda x: x.get("dataHora", ""), reverse=True)
+            ultimo_movimento = movimentos[0] if movimentos else {}
+            relator = ""
+            
+            # Tenta extrair o texto da decisão dos complementos
+            texto_decisao = ""
+            for movimento in movimentos:
+                complementos = movimento.get("complementosTabelados", [])
+                for complemento in complementos:
+                    if "decisão" in complemento.get("descricao", "").lower():
+                        texto_decisao = complemento.get("nome", "")
+                        break
+            
+            processed_decisions.append({
+                "id": decision.get("id", ""),
+                "tribunal": "TST",
+                "numero_processo": decision.get("numeroProcesso", ""),
+                "data_ajuizamento": decision.get("dataAjuizamento", ""),
+                "data_ultimo_movimento": ultimo_movimento.get("dataHora", ""),
+                "ultimo_movimento": ultimo_movimento.get("nome", ""),
+                "relator": relator,
+                "classe": classe_nome,
+                "assunto": assunto_texto,
+                "texto": texto_decisao,
+                "orgao_julgador": decision.get("orgaoJulgador", {}).get("nome", "")
+            })
         
         return processed_decisions
 
@@ -92,9 +116,9 @@ class DataCollector:
         """
         logger.info(f"Iniciando coleta de dados do TRT {region}...")
         
-        # Define período de coleta (últimos 6 meses)
+        # Define período de coleta (desde 2016)
         end_date = datetime.now()
-        start_date = end_date - timedelta(days=180)
+        start_date = datetime(2016, 1, 1)
         
         # Formata o código do TRT (ex: 2 -> TRT2)
         tribunal_code = f"TRT{region}"
@@ -104,26 +128,50 @@ class DataCollector:
             start_date=start_date,
             end_date=end_date,
             tribunal=tribunal_code,  # Código do TRT
-            classe="RECURSO ORDINÁRIO",  # Classe específica para assédio moral
             assunto="ASSÉDIO MORAL"  # Assunto específico
         )
         
         # Processa e formata as decisões
         processed_decisions = []
         for decision in decisions:
-            # Obtém detalhes completos da decisão
-            details = self.datajud.get_decision_details(decision["id"])
-            if details:
-                processed_decisions.append({
-                    "id": decision["id"],
-                    "tribunal": tribunal_code,
-                    "data_julgamento": decision["dataJulgamento"],
-                    "relator": decision.get("relator", ""),
-                    "classe": decision.get("classe", ""),
-                    "assunto": decision.get("assunto", ""),
-                    "texto": details.get("texto", ""),
-                    "url": details.get("url", "")
-                })
+            # Detalhes já estão incluídos na resposta
+            # Extrai classe processual a partir do objeto classe
+            classe_obj = decision.get("classe", {})
+            classe_nome = classe_obj.get("nome", "") if isinstance(classe_obj, dict) else ""
+            
+            # Extrai assuntos
+            assuntos = decision.get("assuntos", [])
+            assunto_nomes = [a.get("nome", "") for a in assuntos if isinstance(a, dict)]
+            assunto_texto = ", ".join(assunto_nomes)
+            
+            # Extrai o movimento mais recente (se houver)
+            movimentos = decision.get("movimentos", [])
+            movimentos.sort(key=lambda x: x.get("dataHora", ""), reverse=True)
+            ultimo_movimento = movimentos[0] if movimentos else {}
+            relator = ""
+            
+            # Tenta extrair o texto da decisão dos complementos
+            texto_decisao = ""
+            for movimento in movimentos:
+                complementos = movimento.get("complementosTabelados", [])
+                for complemento in complementos:
+                    if "decisão" in complemento.get("descricao", "").lower():
+                        texto_decisao = complemento.get("nome", "")
+                        break
+            
+            processed_decisions.append({
+                "id": decision.get("id", ""),
+                "tribunal": tribunal_code,
+                "numero_processo": decision.get("numeroProcesso", ""),
+                "data_ajuizamento": decision.get("dataAjuizamento", ""),
+                "data_ultimo_movimento": ultimo_movimento.get("dataHora", ""),
+                "ultimo_movimento": ultimo_movimento.get("nome", ""),
+                "relator": relator,
+                "classe": classe_nome,
+                "assunto": assunto_texto,
+                "texto": texto_decisao,
+                "orgao_julgador": decision.get("orgaoJulgador", {}).get("nome", "")
+            })
         
         return processed_decisions
 
@@ -154,17 +202,24 @@ def main():
     collector = DataCollector()
     try:
         # Coleta e salva dados do TST
+        logger.info("=== Iniciando coleta de dados do TST ===")
         tst_decisions = collector.collect_from_tst()
         collector.save_data(tst_decisions, "tst")
+        logger.info(f"Coletados {len(tst_decisions)} processos do TST")
         
         # Coleta e salva dados de cada TRT
+        logger.info("=== Iniciando coleta de dados dos TRTs ===")
         for region in range(1, 25):
             try:
+                logger.info(f"=== TRT {region} ===")
                 trt_decisions = collector.collect_from_trt(region)
                 collector.save_data(trt_decisions, f"trt{region}")
+                logger.info(f"Coletados {len(trt_decisions)} processos do TRT{region}")
             except Exception as e:
                 logger.error(f"Erro ao coletar dados do TRT {region}: {str(e)}")
                 continue
+        
+        logger.info("=== Coleta de dados concluída ===")
         
     finally:
         collector.close()
