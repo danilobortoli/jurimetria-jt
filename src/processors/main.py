@@ -35,12 +35,33 @@ class DataProcessor:
     def load_raw_data(self) -> List[Dict[str, Any]]:
         """
         Carrega todos os dados brutos dos arquivos JSON
+        Primeiro tenta carregar do arquivo consolidado, depois dos arquivos individuais
         """
+        consolidated_path = self.base_path / "data" / "consolidated"
+        consolidated_file = consolidated_path / "all_decisions.json"
+        
+        # Se existe arquivo consolidado, usa ele
+        if consolidated_file.exists():
+            try:
+                with open(consolidated_file, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+                    logger.info(f"Carregados {len(data)} registros do arquivo consolidado {consolidated_file}")
+                    return data
+            except Exception as e:
+                logger.error(f"Erro ao carregar arquivo consolidado: {str(e)}")
+                logger.info("Tentando carregar arquivos individuais...")
+        
+        # Se não conseguiu carregar o consolidado, carrega os arquivos individuais
         all_data = []
         for file_path in self.raw_data_path.glob("*.json"):
-            with open(file_path, 'r', encoding='utf-8') as f:
-                data = json.load(f)
-                all_data.extend(data)
+            try:
+                with open(file_path, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+                    logger.info(f"Carregados {len(data)} registros de {file_path}")
+                    all_data.extend(data)
+            except Exception as e:
+                logger.error(f"Erro ao carregar arquivo {file_path}: {str(e)}")
+        
         return all_data
 
     def process_text(self, text: str) -> Dict[str, Any]:
@@ -91,16 +112,86 @@ class DataProcessor:
         """
         processed_data = []
         
+        # Rastreia processos já analisados para evitar duplicidade
+        processed_processes = set()
+        
         for item in data:
-            processed = self.process_text(item.get('texto', ''))
+            numero_processo = item.get('numero_processo', '')
+            
+            # Verifica se já processamos este número de processo
+            # Isso evita duplicidade de processos com múltiplas decisões
+            # Em caso de duplicidade, damos preferência a instâncias superiores
+            if numero_processo in processed_processes:
+                continue
+                
+            processed_processes.add(numero_processo)
+            
+            # Processa o texto da decisão usando NLP
+            texto_analise = item.get('texto', '') + ' ' + item.get('ementa', '')
+            processed = self.process_text(texto_analise)
+            
+            # Extrai o código de assunto (se disponível)
+            assuntos = item.get('assuntos', [])
+            assunto_codigo = None
+            assunto_nome = item.get('assunto', '')
+            
+            # Verifica cada assunto buscando os códigos específicos de assédio moral
+            codigos_assedio_moral = [1723, 14175, 14018]
+            for assunto in assuntos:
+                if isinstance(assunto, dict) and assunto.get('codigo') in codigos_assedio_moral:
+                    assunto_codigo = assunto.get('codigo')
+                    assunto_nome = assunto.get('nome', assunto_nome)
+                    break
+            
+            # Adiciona campos dos metadados
             processed.update({
                 'id': item.get('id'),
                 'tribunal': item.get('tribunal'),
+                'numero_processo': numero_processo,
+                'data_ajuizamento': item.get('data_ajuizamento'),
                 'data_julgamento': item.get('data_julgamento'),
+                'instancia': item.get('instancia'),
+                'resultado': item.get('resultado'),
+                'resultado_codigo': item.get('resultado_codigo'),
                 'relator': item.get('relator'),
                 'classe': item.get('classe'),
-                'assunto': item.get('assunto')
+                'assunto': assunto_nome,
+                'assunto_codigo': assunto_codigo,
+                'orgao_julgador': item.get('orgao_julgador')
             })
+            
+            # Codifica os resultados para facilitar a análise
+            # Primeira instância: 1 = Procedente, 0 = Improcedente
+            # Segunda instância ou TST: 1 = Provido, 0 = Desprovido
+            resultado_binario = None
+            
+            if item.get('instancia') == 'Primeira Instância':
+                if item.get('resultado') == 'Procedente':
+                    resultado_binario = 1
+                elif item.get('resultado') == 'Improcedente':
+                    resultado_binario = 0
+            elif item.get('instancia') in ['Segunda Instância', 'TST']:
+                if item.get('resultado') == 'Provido':
+                    resultado_binario = 1
+                elif item.get('resultado') == 'Desprovido':
+                    resultado_binario = 0
+            
+            processed['resultado_binario'] = resultado_binario
+            
+            # Verifica se há menção a laudo pericial no texto
+            processed['mencao_laudo'] = 1 if any(termo in texto_analise.lower() 
+                for termo in ['laudo pericial', 'perícia', 'perito', 'perita', 'laudo médico']) else 0
+            
+            # Calcula duração do processo (em dias)
+            try:
+                if item.get('data_ajuizamento') and item.get('data_julgamento'):
+                    data_aj = pd.to_datetime(item.get('data_ajuizamento'))
+                    data_julg = pd.to_datetime(item.get('data_julgamento'))
+                    duracao = (data_julg - data_aj).days
+                    processed['duracao_dias'] = duracao
+            except Exception as e:
+                logger.warning(f"Erro ao calcular duração do processo: {str(e)}")
+            
             processed_data.append(processed)
         
         return pd.DataFrame(processed_data)

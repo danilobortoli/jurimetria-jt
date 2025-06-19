@@ -78,6 +78,7 @@ class DataJudAPI:
         tribunal: str = None,
         classe: str = None,
         assunto: str = None,
+        movimento_codigos: List[int] = None,
         page: int = 1,
         page_size: int = 100
     ) -> Dict[str, Any]:
@@ -90,6 +91,7 @@ class DataJudAPI:
             tribunal: Código do tribunal (opcional)
             classe: Classe processual (opcional)
             assunto: Assunto (opcional)
+            movimento_codigos: Lista de códigos de movimento (opcional)
             page: Número da página
             page_size: Tamanho da página
         """
@@ -106,6 +108,10 @@ class DataJudAPI:
         }
         
         # Construção da query Elasticsearch otimizada para encontrar casos de assédio moral
+        # Usando os códigos específicos da Tabela de Assuntos do CNJ para assédio moral:
+        # 1723 - Tradicional da Justiça do Trabalho
+        # 14175 - Introduzido na revisão de 2022-2024 para tribunais estaduais, federais e militares
+        # 14018 - Rótulo unificado adotado nas versões mais recentes do PJe
         query = {
             "query": {
                 "bool": {
@@ -113,9 +119,13 @@ class DataJudAPI:
                         {"range": {"dataAjuizamento": date_range}}
                     ],
                     "should": [
+                        # Busca por nome
                         {"match_phrase": {"assuntos.nome": "ASSÉDIO MORAL"}},
                         {"match_phrase": {"movimentos.nome": "assédio moral"}},
-                        {"match_phrase": {"movimentos.complementosTabelados.nome": "assédio moral"}}
+                        {"match_phrase": {"movimentos.complementosTabelados.nome": "assédio moral"}},
+                        
+                        # Busca pelos códigos específicos da tabela CNJ
+                        {"terms": {"assuntos.codigo": [1723, 14175, 14018]}}
                     ],
                     "minimum_should_match": 1
                 }
@@ -128,6 +138,15 @@ class DataJudAPI:
         # Adiciona filtros adicionais se necessário
         if classe:
             query["query"]["bool"]["must"].append({"match": {"classe.nome": classe}})
+            
+        # Filtra por códigos de movimento específicos (219, 220, 237, 242, 236)
+        if movimento_codigos:
+            movimento_filter = {
+                "terms": {
+                    "movimentos.codigo": movimento_codigos
+                }
+            }
+            query["query"]["bool"]["must"].append(movimento_filter)
         
         if assunto and assunto != "ASSÉDIO MORAL":
             query["query"]["bool"]["must"].append({"match": {"assuntos.nome": assunto}})
@@ -197,10 +216,14 @@ class DataJudAPI:
         tribunal: str = None,
         classe: str = None,
         assunto: str = None,
-        max_pages: int = 50  # Aumentado para coletar mais dados
+        movimento_codigos: List[int] = None,
+        max_pages: int = 50,  # Aumentado para coletar mais dados
+        max_results_per_query: int = 5000,  # Limite máximo de resultados por consulta
+        date_chunk_size: int = 90  # Tamanho do intervalo de datas em dias (3 meses)
     ) -> List[Dict[str, Any]]:
         """
         Busca todas as decisões no período especificado, paginando automaticamente
+        e dividindo em intervalos de data para evitar ultrapassar o limite de resultados
         
         Args:
             start_date: Data inicial
@@ -208,38 +231,87 @@ class DataJudAPI:
             tribunal: Código do tribunal (ex: "TST", "TRT1", etc.)
             classe: Classe processual (opcional)
             assunto: Assunto (opcional)
-            max_pages: Número máximo de páginas a buscar
+            movimento_codigos: Lista de códigos de movimento (opcional)
+            max_pages: Número máximo de páginas por intervalo de data
+            max_results_per_query: Limite máximo de resultados que a API aceita por consulta
+            date_chunk_size: Tamanho do intervalo de datas em dias
         """
         if not tribunal or tribunal not in self.TRIBUNAL_ENDPOINTS:
             logger.error(f"Tribunal inválido ou não especificado: {tribunal}")
             return []
-            
-        all_decisions = []
-        page = 1
         
-        while page <= max_pages:
-            logger.info(f"Buscando página {page} para {tribunal}")
-            response = self.search_decisions(
-                start_date=start_date,
-                end_date=end_date,
-                tribunal=tribunal,
-                classe=classe,
-                assunto=assunto,
-                page=page
-            )
+        # Divide o período total em intervalos menores para evitar ultrapassar o limite de resultados
+        all_decisions = []
+        current_start_date = start_date
+        
+        logger.info(f"Iniciando coleta para {tribunal} de {start_date.strftime('%Y-%m-%d')} até {end_date.strftime('%Y-%m-%d')}")
+        logger.info(f"Usando intervalos de {date_chunk_size} dias para não ultrapassar o limite de {max_results_per_query} resultados")
+        
+        interval_count = 1
+        
+        while current_start_date < end_date:
+            # Define o fim do intervalo atual (até date_chunk_size dias depois ou até end_date, o que vier primeiro)
+            current_end_date = min(current_start_date + timedelta(days=date_chunk_size), end_date)
             
-            if not response or not response.get("content"):
-                logger.info(f"Nenhum resultado encontrado na página {page}")
-                break
+            logger.info(f"Intervalo {interval_count}: {current_start_date.strftime('%Y-%m-%d')} a {current_end_date.strftime('%Y-%m-%d')}")
+            
+            # Busca decisões para o intervalo atual
+            interval_decisions = []
+            page = 1
+            
+            while page <= max_pages:
+                logger.info(f"Buscando página {page} para {tribunal} (intervalo {current_start_date.strftime('%Y-%m-%d')} a {current_end_date.strftime('%Y-%m-%d')})")
+                response = self.search_decisions(
+                    start_date=current_start_date,
+                    end_date=current_end_date,
+                    tribunal=tribunal,
+                    classe=classe,
+                    assunto=assunto,
+                    movimento_codigos=movimento_codigos,
+                    page=page
+                )
                 
-            decisions = response["content"]
-            all_decisions.extend(decisions)
-            
-            if not response.get("hasNext"):
-                logger.info(f"Fim dos resultados para {tribunal}")
-                break
+                if not response or not response.get("content"):
+                    logger.info(f"Nenhum resultado encontrado na página {page} do intervalo atual")
+                    break
                 
-            page += 1
+                decisions = response["content"]
+                interval_decisions.extend(decisions)
+                
+                # Verifica se estamos próximos do limite máximo de resultados
+                if len(interval_decisions) >= max_results_per_query * 0.9:
+                    logger.warning(f"Atingindo limite de resultados ({len(interval_decisions)} de {max_results_per_query}). "
+                                 f"Reduzindo intervalo de datas para garantir coleta completa.")
+                    
+                    # Reduz o tamanho do intervalo para a próxima iteração
+                    date_chunk_size = max(7, date_chunk_size // 2)  # Pelo menos 1 semana
+                    logger.info(f"Novo tamanho de intervalo: {date_chunk_size} dias")
+                    
+                    # Se ainda temos mais páginas, mas estamos próximos do limite, paramos
+                    # e deixamos para a próxima iteração com um intervalo menor
+                    if response.get("hasNext"):
+                        logger.info(f"Interrompendo coleta do intervalo atual para evitar perda de dados.")
+                        break
+                
+                if not response.get("hasNext"):
+                    logger.info(f"Fim dos resultados para o intervalo atual")
+                    break
+                
+                page += 1
             
-        logger.info(f"Total de {len(all_decisions)} decisões encontradas para {tribunal}")
+            logger.info(f"Coletados {len(interval_decisions)} decisões para o intervalo {interval_count}")
+            all_decisions.extend(interval_decisions)
+            
+            # Avança para o próximo intervalo
+            current_start_date = current_end_date + timedelta(days=1)
+            interval_count += 1
+            
+            # Se o intervalo atual retornou poucos resultados, podemos aumentar o tamanho
+            # do intervalo para a próxima iteração (até o máximo original)
+            if len(interval_decisions) < max_results_per_query * 0.5:
+                original_chunk_size = 90  # valor original
+                date_chunk_size = min(original_chunk_size, date_chunk_size * 2)
+                logger.info(f"Poucos resultados no intervalo atual. Aumentando para {date_chunk_size} dias")
+        
+        logger.info(f"Total geral: {len(all_decisions)} decisões encontradas para {tribunal}")
         return all_decisions 

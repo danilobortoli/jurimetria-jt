@@ -42,10 +42,21 @@ def test_datajud_api():
         print(f"- Tribunal: {tribunal}")
         print(f"- Assunto: ASSÉDIO MORAL")
         
-        # Constrói uma query simplificada para testar acesso básico
+        # Constrói uma query para testar busca com códigos de movimento e códigos de assunto
         query = {
             "query": {
-                "match_all": {}
+                "bool": {
+                    "must": [
+                        {"terms": {"movimentos.codigo": [219, 220, 237, 242, 236]}}
+                    ],
+                    "should": [
+                        # Busca pelos códigos de assunto específicos de assédio moral
+                        {"terms": {"assuntos.codigo": [1723, 14175, 14018]}},
+                        # Busca pelo nome do assunto
+                        {"match_phrase": {"assuntos.nome": "ASSÉDIO MORAL"}}
+                    ],
+                    "minimum_should_match": 1
+                }
             },
             "size": 5
         }
