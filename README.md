@@ -1,147 +1,198 @@
-# Jurimetria - Análise de Assédio Moral na Justiça do Trabalho
+# Jurimetria do Assédio Moral na Justiça do Trabalho
 
-Este projeto realiza análise jurimétrica de decisões judiciais relacionadas a casos de assédio moral na Justiça do Trabalho do Brasil. Utilizando técnicas de coleta de dados, processamento de linguagem natural e visualização, o projeto busca identificar padrões, tendências e características dos processos judiciais envolvendo assédio moral.
+## 📊 Sobre o Projeto
 
-## O que é Jurimetria?
+Este repositório contém a ferramenta de análise jurimétrica desenvolvida como suporte metodológico para a tese de doutorado "Assédio Moral Sistêmico como Engrenagem do Capital: Subjetividade dos Trabalhadores e Justiça em Disputa no Brasil Contemporâneo", de autoria de Andrea Antico Soares, apresentada ao Programa de Pós-Graduação em Ciências Sociais da UNESP em 2025.
 
-Jurimetria é a aplicação de métodos quantitativos e estatísticos ao estudo do Direito. Ela utiliza dados jurídicos para extrair informações e padrões que possam auxiliar na compreensão da prática jurídica, fornecer insights para tomadas de decisão e prever tendências futuras.
+### Contexto Acadêmico
 
-## Funcionalidades
+- **Instituição**: Universidade Estadual Paulista (UNESP) - Campus de Marília
+- **Programa**: Pós-Graduação em Ciências Sociais
+- **Área de Concentração**: Determinações do Mundo do Trabalho
+- **Orientador**: Prof. Dr. Leandro de Oliveira Galastri
+- **Coorientador**: Prof. Dr. Giovanni Antonio Pinto Alves
 
-- **Coleta de dados**: Integração com a API pública do DataJud do CNJ para coletar processos de todos os Tribunais Regionais do Trabalho e do TST
-- **Processamento de texto**: Utilização de técnicas de NLP para extrair informações relevantes das decisões judiciais
-- **Análise estatística**: Identificação de padrões, correlações e tendências nas decisões sobre assédio moral
-- **Visualização de dados**: Dashboard interativo para exploração e apresentação dos resultados
+## 🎯 Objetivo
 
-## 🆕 Novidades na Versão Atual
+Esta ferramenta foi desenvolvida para fornecer evidências empíricas quantitativas que sustentam a tese central de que o assédio moral não constitui meramente um desvio comportamental individual, mas opera como uma tecnologia de gestão funcional à racionalidade neoliberal do capitalismo contemporâneo.
 
-- **API Atualizada**: Implementação da integração com os endpoints Elasticsearch da API do DataJud para cada tribunal
-- **Abrangência Expandida**: Coleta de processos desde 2016 até o presente, cobrindo todos os 24 TRTs e o TST
-- **Queries Otimizadas**: Construção de queries Elasticsearch específicas para assédio moral, melhorando a precisão da coleta
-- **Script de Análise**: Adição de ferramenta para análise exploratória rápida dos dados coletados
-- **Melhorias de Performance**: Otimização do processo de coleta e processamento de grandes volumes de dados
-- **Logging Aprimorado**: Sistema de logs mais detalhado para monitoramento do processo de coleta
+Através da análise em larga escala de decisões judiciais, o projeto busca demonstrar como o Poder Judiciário brasileiro tem respondido a esse fenômeno estrutural, revelando padrões, contradições e tendências no tratamento jurídico do assédio moral nas relações de trabalho.
 
-## Estrutura do Projeto
+## 🔍 Questões de Pesquisa
+
+A ferramenta ajuda a responder questões fundamentais da tese:
+
+- Como a Justiça do Trabalho tem interpretado e quantificado o assédio moral?
+- Existe correlação entre setores econômicos específicos (especialmente o financeiro) e a incidência de casos?
+- Qual o impacto da Reforma Trabalhista (2017) nas decisões sobre assédio moral?
+- Como se manifestam as contradições entre o reconhecimento formal do direito e sua efetivação prática?
+- Em que medida o tratamento jurídico individualizado contribui para a despolitização do fenômeno?
+
+## 🛠️ Funcionalidades Principais
+
+### 1. Coleta de Dados
+
+- Integração com a API DataJud do CNJ para acesso aos dados públicos
+- Cobertura de todos os 24 TRTs e o TST
+- Período analisado: 2015 até 2024
+- Queries Elasticsearch otimizadas para termos relacionados a assédio moral
+- Suporte para os códigos específicos da TPU/CNJ para assédio moral (1723, 14175, 14018)
+- Coleta por códigos de movimento da TPU/CNJ (219, 220, 237, 242, 236)
+
+### 2. Processamento e Análise
+
+- NLP (Processamento de Linguagem Natural) para extração de informações relevantes
+- Identificação de padrões decisórios e argumentativos
+- Análise de sentimento para classificação das decisões
+- Extração de valores de indenização e tempo de tramitação
+- Classificação por instância e resultado (procedente/improcedente, provido/desprovido)
+
+### 3. Visualização de Dados
+
+- Dashboard interativo para exploração dos resultados
+- Análises por região, tribunal, período e setor econômico
+- Gráficos de tendências temporais e distribuições estatísticas
+
+## 📈 Principais Métricas Analisadas
+
+- Taxa de procedência/improcedência dos pedidos
+- Valores médios de indenização por dano moral
+- Tempo médio de tramitação dos processos
+- Distribuição geográfica dos casos
+- Setores econômicos mais demandados
+- Evolução temporal pós-Reforma Trabalhista
+- Frequência de termos e argumentos jurídicos
+
+## 🏗️ Estrutura do Projeto
 
 ```
 jurimetria-jt/
-├── data/                # Dados coletados e processados
-│   ├── raw/             # Dados brutos coletados da API
-│   └── processed/       # Dados processados para análise
-├── src/                 # Código fonte
-│   ├── collectors/      # Scripts de coleta de dados
-│   ├── processors/      # Scripts de processamento de texto
-│   ├── analysis/        # Scripts de análise estatística
-│   └── dashboard/       # Código do dashboard interativo
-├── notebooks/           # Jupyter notebooks para análises exploratórias
-├── tests/               # Testes unitários
-├── analyze.py           # Script para análise rápida dos dados coletados
-└── requirements.txt     # Dependências do projeto
+├── data/                    # Dados coletados e processados
+│   ├── raw/                 # JSONs brutos da API DataJud
+│   ├── processed/           # Dados estruturados para análise
+│   └── consolidated/        # Dados consolidados sem duplicatas
+├── src/                     # Código fonte
+│   ├── collectors/          # Scripts de coleta via API
+│   ├── processors/          # Processamento de texto e NLP
+│   ├── analysis/            # Análises estatísticas
+│   └── dashboard/           # Interface de visualização
+├── notebooks/               # Jupyter notebooks exploratórios
+├── tests/                   # Testes unitários
+├── pipeline_assedio_moral.py # Pipeline completo com opções de linha de comando
+├── run_pipeline_completo.py # Script de orquestração com retentativas e controle de erros
+└── requirements.txt         # Dependências Python
 ```
 
-## Pré-requisitos
+## 🚀 Como Utilizar
 
-- Python 3.8 ou superior
-- Acesso à API do DataJud (requer uma chave de API válida)
-- Espaço em disco para armazenamento dos dados coletados
+### Pré-requisitos
 
-## Instalação
+- Python 3.8+
+- Chave de API do DataJud
+- Bibliotecas: pandas, numpy, spacy, nltk, streamlit, plotly, selenium
 
-1. Clone o repositório:
+### Instalação
+
 ```bash
+# Clone o repositório
 git clone https://github.com/danilobortoli/jurimetria-jt.git
 cd jurimetria-jt
-```
 
-2. Crie um ambiente virtual Python:
-```bash
+# Crie ambiente virtual
 python -m venv venv
 source venv/bin/activate  # Linux/Mac
 # ou
 .\venv\Scripts\activate   # Windows
-```
 
-3. Instale as dependências:
-```bash
+# Instale dependências
 pip install -r requirements.txt
-```
 
-4. Configure as variáveis de ambiente:
-```bash
+# Configure variáveis de ambiente
 cp .env.example .env
-# Edite o arquivo .env com sua chave de API do DataJud
+# Edite .env com sua chave da API DataJud
 ```
 
-## Uso
+### Execução
 
-### Coleta de Dados
-
-Para coletar decisões judiciais da API do DataJud:
+#### Pipeline Completo (Automatizado)
 
 ```bash
+# Executa todo o pipeline em sequência
+python run_pipeline_completo.py
+
+# Coleta apenas alguns TRTs específicos
+python run_pipeline_completo.py --start-trt 1 --end-trt 10
+
+# Pular etapas específicas
+python run_pipeline_completo.py --skip-trts --skip-tst
+```
+
+#### Pipeline com Opções Específicas
+
+```bash
+# Coletar dados de todos os TRTs e TST
+python pipeline_assedio_moral.py --collect
+
+# Coletar apenas dados do TST
+python pipeline_assedio_moral.py --collect --only-tst
+
+# Consolidar dados coletados
+python pipeline_assedio_moral.py --consolidate
+
+# Processar dados consolidados
+python pipeline_assedio_moral.py --process
+
+# Analisar dados processados
+python pipeline_assedio_moral.py --analyze
+```
+
+#### Scripts Individuais
+
+```bash
+# Coletar dados
 python -m src.collectors.main
-```
 
-Este comando coletará processos relacionados a assédio moral de todos os tribunais trabalhistas (TST e TRTs) desde 2016 até o presente.
-
-Para analisar rapidamente os dados coletados:
-
-```bash
-python analyze.py
-```
-
-### Processamento
-
-Para processar os dados coletados e prepará-los para análise:
-
-```bash
+# Processar dados
 python -m src.processors.main
+
+# Analisar dados
+python -m src.analysis.assedio_moral_analysis
 ```
 
-Este comando processará os arquivos JSON brutos, extrairá informações relevantes e gerará um arquivo CSV consolidado com os dados processados.
+## 📚 Fundamentação Teórica
 
-### Visualização
+Este projeto operacionaliza empiricamente os conceitos desenvolvidos na tese, particularmente:
 
-Para executar o dashboard interativo:
+- **Assédio moral como tecnologia de gestão**: não como desvio, mas como ferramenta sistêmica
+- **Precarização subjetiva**: captura da subjetividade do trabalhador pelo capital
+- **Financeirização e violência laboral**: especial atenção ao setor bancário
+- **Contradições da forma jurídica**: entre proteção formal e desproteção real
 
-```bash
-streamlit run src.dashboard.app
-```
+## 🔬 Contribuição Científica
 
-O dashboard permitirá a exploração visual dos dados, com filtros por tribunal, período, tipos de decisão, entre outros.
+- **Metodológica**: Demonstra o potencial da jurimetria para análises críticas do Direito
+- **Empírica**: Fornece dados quantitativos sobre um fenômeno usualmente tratado qualitativamente
+- **Teórica**: Sustenta com evidências a tese do assédio moral como engrenagem do capital
+- **Prática**: Oferece subsídios para políticas públicas e ação sindical
 
-## Exemplos de Análises
+## ⚖️ Aspectos Éticos
 
-- Distribuição geográfica dos casos de assédio moral por região/estado
-- Evolução temporal do número de processos e decisões
-- Taxa de procedência/improcedência dos pedidos de indenização
-- Valor médio das indenizações concedidas
-- Palavras e termos mais frequentes nas decisões judiciais
-- Tempo médio de tramitação dos processos
+- Utiliza apenas dados públicos disponibilizados pelo CNJ
+- Preserva anonimato de partes e advogados
+- Foco na análise agregada e identificação de padrões estruturais
+- Compromisso com o uso responsável dos resultados
 
-## Detalhes Técnicos
+## 📊 Resultados Preliminares
 
-### Coleta de Dados (DataJud API)
+Alguns achados significativos da pesquisa:
 
-A coleta utiliza a API pública do DataJud, acessando endpoints específicos para cada tribunal através de consultas Elasticsearch. As principais funcionalidades incluem:
+- Concentração de casos no setor financeiro/bancário
+- Redução de ações pós-Reforma Trabalhista
+- Disparidades regionais significativas nos valores de indenização
+- Predomínio do tratamento individualizado vs. reconhecimento coletivo
+- Correlação entre precarização e incidência de assédio
 
-- Autenticação com APIKey no cabeçalho da requisição
-- Paginação automática para coletar grandes volumes de dados
-- Construção de queries Elasticsearch otimizadas para assédio moral
-- Tratamento de erros e tentativas de reconexão
-- Armazenamento dos dados em formato JSON
-
-### Processamento de Texto
-
-O processamento utiliza bibliotecas como spaCy e NLTK para:
-
-- Extração de entidades nomeadas (pessoas, organizações, valores)
-- Análise de sentimento para classificar decisões
-- Contagem de palavras e frases relevantes
-- Extração de metadados como datas, valores de indenização, etc.
-
-## Contribuição
+## 🤝 Como Contribuir
 
 Contribuições são bem-vindas! Para contribuir:
 
@@ -151,10 +202,21 @@ Contribuições são bem-vindas! Para contribuir:
 4. Push para a branch (`git push origin feature/nova-funcionalidade`)
 5. Crie um novo Pull Request
 
-## Licença
+## 📄 Licença
 
 Este projeto está licenciado sob a licença CC0 1.0 Universal - veja o arquivo LICENSE para mais detalhes.
 
-## Contato
+## 📧 Contato
 
-Danilo Bortoli - [@danilobortoli](https://github.com/danilobortoli)
+Para questões relacionadas ao projeto ou à pesquisa:
+
+- **Autora**: Andrea Antico Soares
+- **Instituição**: UNESP - Marília
+- **Suporte Técnico**: Danilo Bortoli - [@danilobortoli](https://github.com/danilobortoli)
+
+## 🙏 Agradecimentos
+
+- CNJ pela disponibilização da API DataJud
+- UNESP pelo apoio institucional
+- Orientadores pela direção acadêmica
+- Comunidade open source pelas ferramentas utilizadas
