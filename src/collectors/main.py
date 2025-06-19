@@ -54,9 +54,9 @@ class DataCollector:
         """
         logger.info("Iniciando coleta de dados do TST...")
         
-        # Define período de coleta (desde 2015 até 2024)
-        end_date = datetime(2024, 12, 31)  # Até o final de 2024
-        start_date = datetime(2015, 1, 1)  # A partir de 2015
+        # Define período de coleta (2023 apenas para teste rápido)
+        end_date = datetime(2023, 12, 31)  # Até o final de 2023
+        start_date = datetime(2023, 1, 1)  # A partir de 2023
         
         # Códigos de movimento para recursos providos ou desprovidos
         # 237 = Provimento (recurso acolhido)
@@ -163,9 +163,9 @@ class DataCollector:
         """
         logger.info(f"Iniciando coleta de dados do TRT {region}...")
         
-        # Define período de coleta (desde 2015 até 2024)
-        end_date = datetime(2024, 12, 31)  # Até o final de 2024
-        start_date = datetime(2015, 1, 1)  # A partir de 2015
+        # Define período de coleta (2023 apenas para teste rápido)
+        end_date = datetime(2023, 12, 31)  # Até o final de 2023
+        start_date = datetime(2023, 1, 1)  # A partir de 2023
         
         # Formata o código do TRT (ex: 2 -> TRT2)
         tribunal_code = f"TRT{region}"

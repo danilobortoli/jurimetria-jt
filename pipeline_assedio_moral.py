@@ -118,32 +118,38 @@ def main():
             # Configuração de coletor personalizado
             collector = DataCollector()
             try:
-                # Coleta do TST se não estiver desabilitado
-                if not args.only_tst:
+                # Coleta do TST
+                if args.only_tst:
                     logger.info("=== Iniciando coleta de dados do TST ===")
                     tst_decisions = collector.collect_from_tst()
                     collector.save_data(tst_decisions, "tst")
                     logger.info(f"Coletados {len(tst_decisions)} processos do TST")
-                
-                # Coleta dos TRTs conforme faixa especificada
-                start_trt = args.start_tribunal if args.start_tribunal else 1
-                end_trt = args.end_tribunal if args.end_tribunal else 24
-                
-                logger.info(f"=== Iniciando coleta de dados dos TRTs ({start_trt} a {end_trt}) ===")
-                for region in range(start_trt, end_trt + 1):
-                    try:
-                        logger.info(f"=== TRT {region} ===")
-                        trt_decisions = collector.collect_from_trt(region)
-                        collector.save_data(trt_decisions, f"trt{region}")
-                        logger.info(f"Coletados {len(trt_decisions)} processos do TRT{region}")
-                        
-                        # Aguarda entre tribunais se solicitado
-                        if args.sleep > 0:
-                            logger.info(f"Aguardando {args.sleep} segundos antes do próximo tribunal...")
-                            time.sleep(args.sleep)
-                    except Exception as e:
-                        logger.error(f"Erro ao coletar dados do TRT {region}: {str(e)}")
-                        continue
+                else:
+                    # Coleta do TST + TRTs
+                    logger.info("=== Iniciando coleta de dados do TST ===")
+                    tst_decisions = collector.collect_from_tst()
+                    collector.save_data(tst_decisions, "tst")
+                    logger.info(f"Coletados {len(tst_decisions)} processos do TST")
+                    
+                    # Coleta dos TRTs conforme faixa especificada
+                    start_trt = args.start_tribunal if args.start_tribunal else 1
+                    end_trt = args.end_tribunal if args.end_tribunal else 24
+                    
+                    logger.info(f"=== Iniciando coleta de dados dos TRTs ({start_trt} a {end_trt}) ===")
+                    for region in range(start_trt, end_trt + 1):
+                        try:
+                            logger.info(f"=== TRT {region} ===")
+                            trt_decisions = collector.collect_from_trt(region)
+                            collector.save_data(trt_decisions, f"trt{region}")
+                            logger.info(f"Coletados {len(trt_decisions)} processos do TRT{region}")
+                            
+                            # Aguarda entre tribunais se solicitado
+                            if args.sleep > 0:
+                                logger.info(f"Aguardando {args.sleep} segundos antes do próximo tribunal...")
+                                time.sleep(args.sleep)
+                        except Exception as e:
+                            logger.error(f"Erro ao coletar dados do TRT {region}: {str(e)}")
+                            continue
                 
                 logger.info("=== Coleta de dados concluída ===")
                 success = True
