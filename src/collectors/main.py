@@ -48,15 +48,23 @@ class DataCollector:
             options=chrome_options
         )
 
-    def collect_from_tst(self) -> List[Dict[str, Any]]:
+    def collect_from_tst(self, start_date=None, end_date=None) -> List[Dict[str, Any]]:
         """
         Coleta decisões do Tribunal Superior do Trabalho
+        
+        Args:
+            start_date: Data inicial (opcional, padrão 2015-01-01)
+            end_date: Data final (opcional, padrão 2024-12-31)
         """
         logger.info("Iniciando coleta de dados do TST...")
         
-        # Define período de coleta (2023 apenas para teste rápido)
-        end_date = datetime(2023, 12, 31)  # Até o final de 2023
-        start_date = datetime(2023, 1, 1)  # A partir de 2023
+        # Define período de coleta (2015 a 2024) se não especificado
+        if end_date is None:
+            end_date = datetime(2024, 12, 31)  # Até o final de 2024
+        if start_date is None:
+            start_date = datetime(2015, 1, 1)  # A partir de 2015
+            
+        logger.info(f"Período de coleta: {start_date.strftime('%Y-%m-%d')} a {end_date.strftime('%Y-%m-%d')}")
         
         # Códigos de movimento para recursos providos ou desprovidos
         # 237 = Provimento (recurso acolhido)
@@ -157,15 +165,24 @@ class DataCollector:
         
         return processed_decisions
 
-    def collect_from_trt(self, region: int) -> List[Dict[str, Any]]:
+    def collect_from_trt(self, region: int, start_date=None, end_date=None) -> List[Dict[str, Any]]:
         """
         Coleta decisões dos Tribunais Regionais do Trabalho
+        
+        Args:
+            region: Número do TRT (1-24)
+            start_date: Data inicial (opcional, padrão 2015-01-01)
+            end_date: Data final (opcional, padrão 2024-12-31)
         """
         logger.info(f"Iniciando coleta de dados do TRT {region}...")
         
-        # Define período de coleta (2023 apenas para teste rápido)
-        end_date = datetime(2023, 12, 31)  # Até o final de 2023
-        start_date = datetime(2023, 1, 1)  # A partir de 2023
+        # Define período de coleta (2015 a 2024) se não especificado
+        if end_date is None:
+            end_date = datetime(2024, 12, 31)  # Até o final de 2024
+        if start_date is None:
+            start_date = datetime(2015, 1, 1)  # A partir de 2015
+            
+        logger.info(f"Período de coleta: {start_date.strftime('%Y-%m-%d')} a {end_date.strftime('%Y-%m-%d')}")
         
         # Formata o código do TRT (ex: 2 -> TRT2)
         tribunal_code = f"TRT{region}"

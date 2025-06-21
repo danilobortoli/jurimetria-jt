@@ -88,37 +88,40 @@ def run_command(command, description, max_retries=3, retry_delay=60):
     
     return False
 
-def coletar_trts(start_trt=1, end_trt=24, batch_size=5, sleep_between_batches=300):
+def coletar_trts(start_trt=1, end_trt=24, batch_size=1, sleep_between_batches=300, year_start=2015, year_end=2024):
     """
     Coleta dados dos TRTs em lotes para evitar sobrecarga
+    Com controle de ano para dividir as consultas e evitar timeout
     """
-    logger.info(f"Iniciando coleta de dados dos TRTs ({start_trt} a {end_trt})")
+    logger.info(f"Iniciando coleta de dados dos TRTs ({start_trt} a {end_trt}) para os anos {year_start} a {year_end}")
     
-    # Divide os tribunais em lotes
-    total_trts = end_trt - start_trt + 1
-    num_batches = (total_trts + batch_size - 1) // batch_size  # Arredonda para cima
-    
-    for batch_num in range(num_batches):
-        batch_start = start_trt + batch_num * batch_size
-        batch_end = min(batch_start + batch_size - 1, end_trt)
+    # Para cada tribunal
+    for trt_num in range(start_trt, end_trt + 1):
+        logger.info(f"Iniciando coleta para TRT {trt_num}")
         
-        logger.info(f"Processando lote {batch_num + 1}/{num_batches}: TRTs {batch_start} a {batch_end}")
+        # Para cada ano
+        for year in range(year_start, year_end + 1):
+            logger.info(f"Coletando dados do ano {year} para TRT {trt_num}")
+            
+            command = f"cd {os.getcwd()} && source venv/bin/activate && python pipeline_assedio_moral.py --collect --start-tribunal {trt_num} --end-tribunal {trt_num} --year {year}"
+            
+            success = run_command(
+                command=command,
+                description=f"Coleta de dados do TRT {trt_num} para o ano {year}",
+                max_retries=3
+            )
+            
+            if not success:
+                logger.warning(f"Falha na coleta do TRT {trt_num} para o ano {year}")
+                # Continua com o próximo ano mesmo em caso de falha
+            
+            # Aguarda entre consultas para evitar sobrecarga na API
+            logger.info(f"Aguardando 30 segundos antes da próxima consulta...")
+            time.sleep(30)
         
-        command = f"cd {os.getcwd()} && source venv/bin/activate && python pipeline_assedio_moral.py --collect --start-tribunal {batch_start} --end-tribunal {batch_end} --sleep 10"
-        
-        success = run_command(
-            command=command,
-            description=f"Coleta de dados dos TRTs {batch_start} a {batch_end}",
-            max_retries=3
-        )
-        
-        if not success:
-            logger.error(f"Falha na coleta do lote {batch_num + 1} (TRTs {batch_start} a {batch_end})")
-            # Continua com o próximo lote mesmo em caso de falha
-        
-        # Aguarda entre lotes para evitar sobrecarga na API
-        if batch_num < num_batches - 1:  # Se não for o último lote
-            logger.info(f"Aguardando {sleep_between_batches} segundos antes do próximo lote...")
+        # Aguarda entre tribunais para evitar sobrecarga na API
+        if trt_num < end_trt:  # Se não for o último tribunal
+            logger.info(f"Aguardando {sleep_between_batches} segundos antes do próximo tribunal...")
             time.sleep(sleep_between_batches)
     
     logger.info("Coleta de dados dos TRTs concluída")
@@ -221,6 +224,8 @@ def main():
     parser.add_argument("--end-trt", type=int, default=24, help="TRT final para coleta (1-24)")
     parser.add_argument("--batch-size", type=int, default=5, help="Número de TRTs por lote")
     parser.add_argument("--sleep", type=int, default=300, help="Tempo de espera entre lotes em segundos")
+    parser.add_argument("--year-start", type=int, default=2015, help="Ano inicial para coleta")
+    parser.add_argument("--year-end", type=int, default=2024, help="Ano final para coleta")
     
     args = parser.parse_args()
     
@@ -252,7 +257,9 @@ def main():
             start_trt=args.start_trt,
             end_trt=args.end_trt,
             batch_size=args.batch_size,
-            sleep_between_batches=args.sleep
+            sleep_between_batches=args.sleep,
+            year_start=args.year_start,
+            year_end=args.year_end
         )
     else:
         logger.info("Coleta de dados dos TRTs ignorada")

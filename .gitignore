@@ -37,13 +37,22 @@ ENV/
 # Data
 data/raw/
 data/processed/
+data/consolidated/
+data/analysis/
+
+# Resultados de análise (podem ser grandes)
+resultados_estatisticos/
+resultados_fluxo/
+relatorio_final/
 
 # Logs
 *.log
+coleta_completa.log
+sistema_completo.log
 
 # Jupyter Notebook
 .ipynb_checkpoints
 
 # OS
 .DS_Store
-Thumbs.db 
+Thumbs.db

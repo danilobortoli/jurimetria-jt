@@ -95,6 +95,7 @@ def main():
     parser.add_argument('--start-tribunal', type=int, help='Iniciar coleta a partir deste número de TRT (1-24)')
     parser.add_argument('--end-tribunal', type=int, help='Terminar coleta neste número de TRT (1-24)')
     parser.add_argument('--only-tst', action='store_true', help='Coletar apenas dados do TST')
+    parser.add_argument('--year', type=int, help='Ano específico para coleta (ex: 2023)')
     parser.add_argument('--sleep', type=int, default=0, help='Tempo de espera entre tribunais (em segundos)')
     
     args = parser.parse_args()
@@ -121,35 +122,67 @@ def main():
                 # Coleta do TST
                 if args.only_tst:
                     logger.info("=== Iniciando coleta de dados do TST ===")
-                    tst_decisions = collector.collect_from_tst()
+                    
+                    # Se um ano específico foi especificado, usar período de apenas um ano
+                    if args.year:
+                        year = args.year
+                        start_date = datetime(year, 1, 1)
+                        end_date = datetime(year, 12, 31)
+                        logger.info(f"Coletando dados apenas do ano {year}")
+                        tst_decisions = collector.collect_from_tst(start_date=start_date, end_date=end_date)
+                    else:
+                        tst_decisions = collector.collect_from_tst()
+                        
                     collector.save_data(tst_decisions, "tst")
                     logger.info(f"Coletados {len(tst_decisions)} processos do TST")
                 else:
                     # Coleta do TST + TRTs
-                    logger.info("=== Iniciando coleta de dados do TST ===")
-                    tst_decisions = collector.collect_from_tst()
-                    collector.save_data(tst_decisions, "tst")
-                    logger.info(f"Coletados {len(tst_decisions)} processos do TST")
+                    if not args.start_tribunal:
+                        logger.info("=== Iniciando coleta de dados do TST ===")
+                        
+                        # Se um ano específico foi especificado, usar período de apenas um ano
+                        if args.year:
+                            year = args.year
+                            start_date = datetime(year, 1, 1)
+                            end_date = datetime(year, 12, 31)
+                            logger.info(f"Coletando dados apenas do ano {year}")
+                            tst_decisions = collector.collect_from_tst(start_date=start_date, end_date=end_date)
+                        else:
+                            tst_decisions = collector.collect_from_tst()
+                            
+                        collector.save_data(tst_decisions, "tst")
+                        logger.info(f"Coletados {len(tst_decisions)} processos do TST")
                     
                     # Coleta dos TRTs conforme faixa especificada
-                    start_trt = args.start_tribunal if args.start_tribunal else 1
-                    end_trt = args.end_tribunal if args.end_tribunal else 24
-                    
-                    logger.info(f"=== Iniciando coleta de dados dos TRTs ({start_trt} a {end_trt}) ===")
-                    for region in range(start_trt, end_trt + 1):
-                        try:
-                            logger.info(f"=== TRT {region} ===")
-                            trt_decisions = collector.collect_from_trt(region)
-                            collector.save_data(trt_decisions, f"trt{region}")
-                            logger.info(f"Coletados {len(trt_decisions)} processos do TRT{region}")
-                            
-                            # Aguarda entre tribunais se solicitado
-                            if args.sleep > 0:
-                                logger.info(f"Aguardando {args.sleep} segundos antes do próximo tribunal...")
-                                time.sleep(args.sleep)
-                        except Exception as e:
-                            logger.error(f"Erro ao coletar dados do TRT {region}: {str(e)}")
-                            continue
+                    if args.start_tribunal:
+                        start_trt = args.start_tribunal
+                        end_trt = args.end_tribunal if args.end_tribunal else start_trt
+                        
+                        logger.info(f"=== Iniciando coleta de dados dos TRTs ({start_trt} a {end_trt}) ===")
+                        for region in range(start_trt, end_trt + 1):
+                            try:
+                                logger.info(f"=== TRT {region} ===")
+                                
+                                # Se um ano específico foi especificado, usar período de apenas um ano
+                                if args.year:
+                                    year = args.year
+                                    start_date = datetime(year, 1, 1)
+                                    end_date = datetime(year, 12, 31)
+                                    logger.info(f"Coletando dados apenas do ano {year}")
+                                    trt_decisions = collector.collect_from_trt(region, start_date=start_date, end_date=end_date)
+                                else:
+                                    trt_decisions = collector.collect_from_trt(region)
+                                    
+                                collector.save_data(trt_decisions, f"trt{region}")
+                                logger.info(f"Coletados {len(trt_decisions)} processos do TRT{region}")
+                                
+                                # Aguarda entre tribunais se solicitado
+                                if args.sleep > 0:
+                                    logger.info(f"Aguardando {args.sleep} segundos antes do próximo tribunal...")
+                                    time.sleep(args.sleep)
+                            except Exception as e:
+                                logger.error(f"Erro ao coletar dados do TRT {region}: {str(e)}")
+                                continue
                 
                 logger.info("=== Coleta de dados concluída ===")
                 success = True
