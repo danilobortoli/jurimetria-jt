@@ -20,6 +20,33 @@ def load_data():
     data_path = Path(__file__).parent.parent.parent / "data" / "processed" / "processed_decisions.csv"
     return pd.read_csv(data_path)
 
+def compute_chain_metrics(df: pd.DataFrame) -> pd.DataFrame:
+    order = {
+        'Primeira Instância': 1,
+        'Segunda Instância': 2,
+        'TST': 3,
+    }
+
+    stats = {}
+    for numero, grupo in df.groupby('numero_processo'):
+        grupo = grupo.copy()
+        grupo['ord'] = grupo['instancia'].map(order)
+        grupo = grupo.sort_values('ord')
+
+        chain = ' -> '.join(grupo['resultado'].tolist())
+        final = grupo.iloc[-1]['resultado_binario']
+        info = stats.setdefault(chain, {'processos': 0, 'sucessos': 0})
+        info['processos'] += 1
+        if pd.notna(final) and final == 1:
+            info['sucessos'] += 1
+
+    rows = []
+    for chain, val in stats.items():
+        taxa = (val['sucessos'] / val['processos']) * 100
+        rows.append({'cadeia': chain, 'processos': val['processos'], 'taxa_sucesso': taxa})
+
+    return pd.DataFrame(rows)
+
 try:
     df = load_data()
     
@@ -52,7 +79,7 @@ try:
            (df['data_julgamento'].dt.date <= date_range[1])
     
     df_filtered = df[mask]
-    
+
     # Layout em colunas
     col1, col2 = st.columns(2)
     
@@ -99,6 +126,11 @@ try:
             "Média de Palavras por Decisão",
             f"{df_filtered['word_count'].mean():.0f}"
         )
+
+        chain_df = compute_chain_metrics(df_filtered)
+        if not chain_df.empty:
+            st.subheader("Taxa de Sucesso por Cadeia de Recursos")
+            st.dataframe(chain_df)
     
     # Tabela com dados detalhados
     st.subheader("Dados Detalhados")
