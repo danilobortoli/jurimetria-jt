@@ -60,16 +60,20 @@ class DataConsolidator:
     
     def remove_duplicates(self, data: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
         """
-        Remove duplicatas de uma lista de processos com base no número do processo
+        Remove duplicatas mantendo entradas distintas para cada instância.
+        Decisões do mesmo processo em instâncias diferentes são preservadas.
         """
         unique_data = []
-        process_numbers: Set[str] = set()
-        
+        process_keys: Set[tuple] = set()
+
         for item in data:
             numero_processo = item.get('numero_processo', '')
-            if numero_processo and numero_processo not in process_numbers:
+            instancia = item.get('instancia', '')
+            key = (numero_processo, instancia)
+
+            if numero_processo and key not in process_keys:
                 unique_data.append(item)
-                process_numbers.add(numero_processo)
+                process_keys.add(key)
         
         logger.info(f"Removidas {len(data) - len(unique_data)} duplicatas de {len(data)} registros")
         return unique_data

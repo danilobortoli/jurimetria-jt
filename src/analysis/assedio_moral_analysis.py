@@ -299,6 +299,53 @@ class AssedioMoralAnalysis:
             'por_orgao': by_orgao,
             'por_codigo_assunto': assunto_results
         }
+
+    def analyze_appeal_chain(self, df: pd.DataFrame) -> Dict[str, Any]:
+        """
+        Agrupa processos e analisa a sequência de resultados nas instâncias.
+        Retorna contagens das cadeias de recursos e a taxa de sucesso final.
+        """
+        if df.empty:
+            return {}
+
+        order = {
+            'Primeira Instância': 1,
+            'Segunda Instância': 2,
+            'TST': 3,
+        }
+
+        chain_stats: Dict[Tuple[str, ...], Dict[str, int]] = {}
+
+        for numero, grupo in df.groupby('numero_processo'):
+            grupo = grupo.copy()
+            grupo['ord'] = grupo['instancia'].map(order)
+            grupo = grupo.sort_values('ord')
+
+            chain = tuple(grupo['resultado'].tolist())
+            final_result = grupo.iloc[-1]['resultado_binario']
+
+            info = chain_stats.setdefault(chain, {'count': 0, 'sucessos': 0})
+            info['count'] += 1
+            if pd.notna(final_result) and final_result == 1:
+                info['sucessos'] += 1
+
+        # Calcula taxa de sucesso para cada cadeia
+        chain_summary = {
+            ' -> '.join(chain): {
+                'processos': val['count'],
+                'taxa_sucesso': (val['sucessos'] / val['count']) * 100
+            }
+            for chain, val in chain_stats.items()
+        }
+
+        overall_success = (
+            sum(v['sucessos'] for v in chain_stats.values()) / sum(v['count'] for v in chain_stats.values()) * 100
+        )
+
+        return {
+            'cadeias': chain_summary,
+            'taxa_sucesso_global': overall_success
+        }
     
     def plot_results(
         self, 
@@ -423,15 +470,15 @@ class AssedioMoralAnalysis:
                 plt.savefig(self.analysis_output_path / "influencia_laudo_pericial.png")
     
     def generate_report(
-        self, 
+        self,
         df: pd.DataFrame,
         primeira_instancia_results: Dict[str, Any],
         segunda_instancia_results: Dict[str, Any],
-        tst_results: Dict[str, Any]
+        tst_results: Dict[str, Any],
+        chain_results: Dict[str, Any],
     ):
-        """
-        Gera um relatório em formato markdown com os resultados da análise
-        """
+        """Gera um relatório em formato markdown com os resultados da análise,
+        incluindo métricas das cadeias de recursos."""
         report_path = self.analysis_output_path / "relatorio_assedio_moral.md"
         
         with open(report_path, 'w', encoding='utf-8') as f:
@@ -489,13 +536,20 @@ class AssedioMoralAnalysis:
             if tst_results:
                 contagens = tst_results.get('contagens', {})
                 percentuais = tst_results.get('percentuais', {})
-                
+
                 f.write("### Resultados Gerais\n\n")
                 for resultado, count in contagens.items():
                     percent = percentuais.get(resultado, 0)
                     f.write(f"- {resultado}: {count} processos ({percent:.1f}%)\n")
             else:
                 f.write("Nenhum dado disponível para o TST.\n\n")
+
+            # Cadeias de recursos
+            if chain_results:
+                f.write("\n## Cadeias de Recursos e Taxas de Sucesso\n\n")
+                for cadeia, dados in chain_results.get('cadeias', {}).items():
+                    f.write(f"- {cadeia}: {dados['processos']} processos, sucesso {dados['taxa_sucesso']:.1f}%\n")
+                f.write(f"\nTaxa de sucesso global: {chain_results.get('taxa_sucesso_global', 0):.1f}%\n")
             
             # Conclusões
             f.write("\n## Conclusões\n\n")
@@ -622,22 +676,26 @@ class AssedioMoralAnalysis:
         primeira_instancia_results = self.analyze_primeira_instancia(dfs_by_instancia['primeira_instancia'])
         segunda_instancia_results = self.analyze_segunda_instancia(dfs_by_instancia['segunda_instancia'])
         tst_results = self.analyze_tst(dfs_by_instancia['tst'])
+
+        chain_results = self.analyze_appeal_chain(df)
         
         # Gera visualizações
         self.plot_results(primeira_instancia_results, segunda_instancia_results, tst_results)
         
         # Gera relatório
         report_path = self.generate_report(
-            df, 
-            primeira_instancia_results, 
-            segunda_instancia_results, 
-            tst_results
+            df,
+            primeira_instancia_results,
+            segunda_instancia_results,
+            tst_results,
+            chain_results
         )
-        
+
         return {
             'primeira_instancia': primeira_instancia_results,
             'segunda_instancia': segunda_instancia_results,
             'tst': tst_results,
+            'cadeias_recursos': chain_results,
             'report_path': report_path
         }
 
