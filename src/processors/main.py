@@ -112,19 +112,8 @@ class DataProcessor:
         """
         processed_data = []
         
-        # Rastreia processos já analisados para evitar duplicidade
-        processed_processes = set()
-        
         for item in data:
             numero_processo = item.get('numero_processo', '')
-            
-            # Verifica se já processamos este número de processo
-            # Isso evita duplicidade de processos com múltiplas decisões
-            # Em caso de duplicidade, damos preferência a instâncias superiores
-            if numero_processo in processed_processes:
-                continue
-                
-            processed_processes.add(numero_processo)
             
             # Processa o texto da decisão usando NLP
             texto_analise = item.get('texto', '') + ' ' + item.get('ementa', '')
