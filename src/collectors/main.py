@@ -85,83 +85,57 @@ class DataCollector:
         # Processa e formata as decisões
         processed_decisions = []
         for decision in decisions:
-            # Detalhes já estão incluídos na resposta
-            # Extrai classe processual a partir do objeto classe
-            classe_obj = decision.get("classe", {})
-            classe_nome = classe_obj.get("nome", "") if isinstance(classe_obj, dict) else ""
-            
-            # Extrai assuntos
-            assuntos = decision.get("assuntos", [])
-            assunto_nomes = [a.get("nome", "") for a in assuntos if isinstance(a, dict)]
-            assunto_texto = ", ".join(assunto_nomes)
-            
-            # Extrai os movimentos
+            # Classificação de resultado e ementa (mantém lógica já existente)
             movimentos = decision.get("movimentos", [])
             movimentos.sort(key=lambda x: x.get("dataHora", ""), reverse=True)
             ultimo_movimento = movimentos[0] if movimentos else {}
-            
-            # Determina o relator (pode estar em complementos)
-            relator = ""
-            for movimento in movimentos:
-                complementos = movimento.get("complementosNaoTabelados", [])
-                for complemento in complementos:
-                    if "relator" in complemento.get("descricao", "").lower():
-                        relator = complemento.get("valor", "")
-                        break
-                if relator:
-                    break
-            
-            # Tenta extrair o texto da decisão dos complementos
-            texto_decisao = ""
-            ementa = ""
-            for movimento in movimentos:
-                complementos = movimento.get("complementosTabelados", [])
-                for complemento in complementos:
-                    if "decisão" in complemento.get("descricao", "").lower():
-                        texto_decisao = complemento.get("nome", "")
-                    if "ementa" in complemento.get("descricao", "").lower():
-                        ementa = complemento.get("nome", "")
-            
-            # Classifica o resultado com base nos códigos de movimento
             resultado = "Não classificado"
             resultado_codigo = None
+            ementa = ""
             for movimento in movimentos:
                 codigo = movimento.get("codigo")
-                if codigo in [237]:  # Provimento (recurso acolhido)
+                if codigo in [237]:
                     resultado = "Provido"
                     resultado_codigo = codigo
-                    break
-                elif codigo in [242, 236]:  # Desprovimento ou Negação de seguimento
+                elif codigo in [242, 236]:
                     resultado = "Desprovido"
                     resultado_codigo = codigo
-                    break
-            
-            # Extrai a data de julgamento do movimento que contém o resultado
-            data_julgamento = ""
-            for movimento in movimentos:
-                if movimento.get("codigo") == resultado_codigo:
-                    data_julgamento = movimento.get("dataHora", "")
-                    break
-            
-            processed_decisions.append({
+                # Ementa
+                complementos = movimento.get("complementosTabelados", [])
+                for complemento in complementos:
+                    if "ementa" in complemento.get("descricao", "").lower():
+                        ementa = complemento.get("nome", "")
+            # Monta dicionário completo conforme glossário
+            processed_decision = {
                 "id": decision.get("id", ""),
-                "tribunal": "TST",
-                "numero_processo": decision.get("numeroProcesso", ""),
-                "data_ajuizamento": decision.get("dataAjuizamento", ""),
-                "data_julgamento": data_julgamento,
+                "tribunal": decision.get("tribunal", ""),
+                "numeroProcesso": decision.get("numeroProcesso", ""),
+                "dataAjuizamento": decision.get("dataAjuizamento", ""),
+                "grau": decision.get("grau", ""),
+                "nivelSigilo": decision.get("nivelSigilo", ""),
+                "formato": decision.get("formato", {}),
+                "sistema": decision.get("sistema", {}),
+                "classe": decision.get("classe", {}),
+                "assuntos": decision.get("assuntos", []),
+                "orgaoJulgador": decision.get("orgaoJulgador", {}),
+                "movimentos": decision.get("movimentos", []),
+                "dataHoraUltimaAtualizacao": decision.get("dataHoraUltimaAtualizacao", ""),
+                "@timestamp": decision.get("@timestamp", ""),
+                # Campos derivados já processados
+                "data_julgamento": decision.get("data_julgamento", ""),
                 "data_ultimo_movimento": ultimo_movimento.get("dataHora", ""),
                 "ultimo_movimento": ultimo_movimento.get("nome", ""),
                 "resultado": resultado,
                 "resultado_codigo": resultado_codigo,
-                "relator": relator,
-                "classe": classe_nome,
-                "assunto": assunto_texto,
-                "assuntos": assuntos,  # Incluindo objeto assuntos completo com códigos
-                "texto": texto_decisao,
                 "ementa": ementa,
-                "orgao_julgador": decision.get("orgaoJulgador", {}).get("nome", ""),
-                "instancia": "TST"
-            })
+                # Mantém outros campos já extraídos, se desejar
+                "relator": decision.get("relator", ""),
+                "classe_nome": decision.get("classe", {}).get("nome", "") if isinstance(decision.get("classe", {}), dict) else "",
+                "assunto": ", ".join([a.get("nome", "") for a in decision.get("assuntos", []) if isinstance(a, dict)]),
+                "texto": decision.get("texto", ""),
+                "instancia": decision.get("instancia", "")
+            }
+            processed_decisions.append(processed_decision)
         
         return processed_decisions
 
@@ -222,109 +196,57 @@ class DataCollector:
         # Processa e formata as decisões
         processed_decisions = []
         for decision in decisions:
-            # Detalhes já estão incluídos na resposta
-            # Extrai classe processual a partir do objeto classe
-            classe_obj = decision.get("classe", {})
-            classe_nome = classe_obj.get("nome", "") if isinstance(classe_obj, dict) else ""
-            
-            # Extrai assuntos
-            assuntos = decision.get("assuntos", [])
-            assunto_nomes = [a.get("nome", "") for a in assuntos if isinstance(a, dict)]
-            assunto_texto = ", ".join(assunto_nomes)
-            
-            # Extrai os movimentos
+            # Classificação de resultado e ementa (mantém lógica já existente)
             movimentos = decision.get("movimentos", [])
             movimentos.sort(key=lambda x: x.get("dataHora", ""), reverse=True)
             ultimo_movimento = movimentos[0] if movimentos else {}
-            
-            # Determina o relator (pode estar em complementos)
-            relator = ""
-            for movimento in movimentos:
-                complementos = movimento.get("complementosNaoTabelados", [])
-                for complemento in complementos:
-                    if "relator" in complemento.get("descricao", "").lower():
-                        relator = complemento.get("valor", "")
-                        break
-                if relator:
-                    break
-            
-            # Tenta extrair o texto da decisão dos complementos
-            texto_decisao = ""
-            ementa = ""
-            for movimento in movimentos:
-                complementos = movimento.get("complementosTabelados", [])
-                for complemento in complementos:
-                    if "decisão" in complemento.get("descricao", "").lower():
-                        texto_decisao = complemento.get("nome", "")
-                    if "ementa" in complemento.get("descricao", "").lower():
-                        ementa = complemento.get("nome", "")
-            
-            # Determina a instância e classifica o resultado com base nos códigos de movimento
-            instancia = "Não classificada"
             resultado = "Não classificado"
             resultado_codigo = None
-            
+            ementa = ""
             for movimento in movimentos:
                 codigo = movimento.get("codigo")
-                
-                # Classificação de primeira instância
-                if codigo in [219]:  # Procedência
-                    instancia = "Primeira Instância"
-                    resultado = "Procedente"
-                    resultado_codigo = codigo
-                    break
-                elif codigo in [220]:  # Improcedência
-                    instancia = "Primeira Instância"
-                    resultado = "Improcedente"
-                    resultado_codigo = codigo
-                    break
-                
-                # Classificação de segunda instância
-                elif codigo in [237]:  # Provimento (recurso acolhido)
-                    instancia = "Segunda Instância"
+                if codigo in [237]:
                     resultado = "Provido"
                     resultado_codigo = codigo
-                    break
-                elif codigo in [242, 236]:  # Desprovimento ou Negação de seguimento
-                    instancia = "Segunda Instância"
+                elif codigo in [242, 236]:
                     resultado = "Desprovido"
                     resultado_codigo = codigo
-                    break
-            
-            # Extrai a data de julgamento do movimento que contém o resultado
-            data_julgamento = ""
-            for movimento in movimentos:
-                if movimento.get("codigo") == resultado_codigo:
-                    data_julgamento = movimento.get("dataHora", "")
-                    break
-            
-            # Determina o tipo de órgão julgador para ajudar a confirmar a instância
-            orgao_julgador = decision.get("orgaoJulgador", {}).get("nome", "")
-            if instancia == "Não classificada" and orgao_julgador:
-                if any(termo in orgao_julgador.lower() for termo in ["vara", "1ª instância", "primeira instância", "juízo"]):
-                    instancia = "Primeira Instância"
-                elif any(termo in orgao_julgador.lower() for termo in ["turma", "colegiado", "pleno", "2ª instância", "segunda instância"]):
-                    instancia = "Segunda Instância"
-            
-            processed_decisions.append({
+                # Ementa
+                complementos = movimento.get("complementosTabelados", [])
+                for complemento in complementos:
+                    if "ementa" in complemento.get("descricao", "").lower():
+                        ementa = complemento.get("nome", "")
+            # Monta dicionário completo conforme glossário
+            processed_decision = {
                 "id": decision.get("id", ""),
-                "tribunal": tribunal_code,
-                "numero_processo": decision.get("numeroProcesso", ""),
-                "data_ajuizamento": decision.get("dataAjuizamento", ""),
-                "data_julgamento": data_julgamento,
+                "tribunal": decision.get("tribunal", ""),
+                "numeroProcesso": decision.get("numeroProcesso", ""),
+                "dataAjuizamento": decision.get("dataAjuizamento", ""),
+                "grau": decision.get("grau", ""),
+                "nivelSigilo": decision.get("nivelSigilo", ""),
+                "formato": decision.get("formato", {}),
+                "sistema": decision.get("sistema", {}),
+                "classe": decision.get("classe", {}),
+                "assuntos": decision.get("assuntos", []),
+                "orgaoJulgador": decision.get("orgaoJulgador", {}),
+                "movimentos": decision.get("movimentos", []),
+                "dataHoraUltimaAtualizacao": decision.get("dataHoraUltimaAtualizacao", ""),
+                "@timestamp": decision.get("@timestamp", ""),
+                # Campos derivados já processados
+                "data_julgamento": decision.get("data_julgamento", ""),
                 "data_ultimo_movimento": ultimo_movimento.get("dataHora", ""),
                 "ultimo_movimento": ultimo_movimento.get("nome", ""),
-                "instancia": instancia,
                 "resultado": resultado,
                 "resultado_codigo": resultado_codigo,
-                "relator": relator,
-                "classe": classe_nome,
-                "assunto": assunto_texto,
-                "assuntos": assuntos,  # Incluindo objeto assuntos completo com códigos
-                "texto": texto_decisao,
                 "ementa": ementa,
-                "orgao_julgador": orgao_julgador
-            })
+                # Mantém outros campos já extraídos, se desejar
+                "relator": decision.get("relator", ""),
+                "classe_nome": decision.get("classe", {}).get("nome", "") if isinstance(decision.get("classe", {}), dict) else "",
+                "assunto": ", ".join([a.get("nome", "") for a in decision.get("assuntos", []) if isinstance(a, dict)]),
+                "texto": decision.get("texto", ""),
+                "instancia": decision.get("instancia", "")
+            }
+            processed_decisions.append(processed_decision)
         
         return processed_decisions
 
@@ -351,7 +273,7 @@ class DataCollector:
                     with open(file_path, 'r', encoding='utf-8') as f:
                         file_data = json.load(f)
                         for item in file_data:
-                            existing_process_numbers.add(item.get('numero_processo', ''))
+                            existing_process_numbers.add(item.get('numeroProcesso', ''))
                         existing_data.extend(file_data)
                 except Exception as e:
                     logger.error(f"Erro ao carregar arquivo existente {file_path}: {str(e)}")
@@ -363,7 +285,7 @@ class DataCollector:
         duplicates = 0
         
         for item in data:
-            numero_processo = item.get('numero_processo', '')
+            numero_processo = item.get('numeroProcesso', '')
             if numero_processo and numero_processo not in existing_process_numbers:
                 new_data.append(item)
                 existing_process_numbers.add(numero_processo)

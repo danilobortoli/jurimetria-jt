@@ -1,0 +1,6 @@
+Fluxo de Decisões em Casos de Assédio Moral
+===========================================
+
+Padrões de Decisão em Múltiplas Instâncias:
+
+Transições entre Instâncias:

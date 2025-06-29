@@ -63,7 +63,7 @@ def executar_coleta(tribunal: str, ano: int, sleep: int = SLEEP_ENTRE_EXECUCOES)
         bool: True se a coleta foi bem-sucedida, False caso contrário
     """
     if tribunal == "TST":
-        comando = f"cd /Users/danilobortoli/jurimetria-jt && source venv/bin/activate && python pipeline_assedio_moral.py --collect-tst --year {ano}"
+        comando = f"cd /Users/danilobortoli/jurimetria-jt && source venv/bin/activate && python pipeline_assedio_moral.py --only-tst --year {ano}"
     else:
         trt_num = int(tribunal.replace("TRT", ""))
         comando = f"cd /Users/danilobortoli/jurimetria-jt && source venv/bin/activate && python pipeline_assedio_moral.py --collect --start-tribunal {trt_num} --end-tribunal {trt_num} --year {ano}"

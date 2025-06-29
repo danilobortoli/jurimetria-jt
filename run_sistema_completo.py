@@ -7,7 +7,8 @@ Este script orquestra todos os componentes do sistema:
 2. Processamento e consolidação dos dados
 3. Análise estatística por tribunal
 4. Análise avançada do fluxo de decisões
-5. Geração de relatórios e visualizações
+5. Análise avançada da taxa de sucesso de recursos
+6. Geração de relatórios e visualizações
 """
 
 import argparse
@@ -75,6 +76,7 @@ def main():
     parser.add_argument("--pular-processamento", action="store_true", help="Pular etapa de processamento e consolidação")
     parser.add_argument("--pular-analise-estatistica", action="store_true", help="Pular etapa de análise estatística")
     parser.add_argument("--pular-analise-fluxo", action="store_true", help="Pular etapa de análise de fluxo")
+    parser.add_argument("--pular-analise-taxa-sucesso", action="store_true", help="Pular etapa de análise de taxa de sucesso")
     parser.add_argument("--ano-inicio", type=int, default=2015, help="Ano inicial para coleta")
     parser.add_argument("--ano-fim", type=int, default=2024, help="Ano final para coleta")
     parser.add_argument("--trt-inicio", type=int, default=2, help="Primeiro TRT para coleta")
@@ -167,12 +169,27 @@ def main():
     else:
         logger.info("Etapa de análise de fluxo ignorada conforme solicitado")
     
-    # Etapa 5: Gerar relatório final integrado
-    logger.info("==== Iniciando Etapa 5: Geração de relatório final integrado ====")
+    # Etapa 5: Análise avançada da taxa de sucesso de recursos
+    if not args.pular_analise_taxa_sucesso:
+        logger.info("==== Iniciando Etapa 5: Análise avançada da taxa de sucesso de recursos ====")
+        
+        if not executar_comando(
+            "cd /Users/danilobortoli/jurimetria-jt && source venv/bin/activate && python analise_taxa_sucesso_avancada.py",
+            "Análise avançada da taxa de sucesso de recursos",
+            timeout=1800  # 30 minutos
+        ):
+            logger.error("Falha na análise avançada da taxa de sucesso de recursos")
+            # Continuar mesmo com falha
+    else:
+        logger.info("Etapa de análise de taxa de sucesso ignorada conforme solicitado")
+    
+    # Etapa 6: Gerar relatório final integrado
+    logger.info("==== Iniciando Etapa 6: Geração de relatório final integrado ====")
     
     # Verifica se os diretórios de resultados existem
     resultados_estatisticos_existem = os.path.exists('resultados_estatisticos')
     resultados_fluxo_existem = os.path.exists('resultados_fluxo')
+    resultados_taxa_sucesso_existem = os.path.exists('resultados_taxa_sucesso_avancada')
     
     if resultados_estatisticos_existem and resultados_fluxo_existem:
         # Criar diretório para relatório final
@@ -187,6 +204,13 @@ def main():
             "cp data/analysis/relatorio_assedio_moral.md relatorio_final/relatorio_basico.md"
         ]
         
+        # Adicionar arquivos da análise de taxa de sucesso se existirem
+        if resultados_taxa_sucesso_existem:
+            comandos_copia.extend([
+                "cp resultados_taxa_sucesso_avancada/*.png relatorio_final/",
+                "cp resultados_taxa_sucesso_avancada/relatorio_taxa_sucesso_avancada.md relatorio_final/"
+            ])
+        
         for comando in comandos_copia:
             executar_comando(comando, "Copiando arquivos para relatório final")
         
@@ -196,33 +220,73 @@ def main():
             f.write("## Sumário\n\n")
             f.write("1. [Relatório Básico](relatorio_basico.md)\n")
             f.write("2. [Relatório Estatístico por Tribunal](relatorio_estatistico.md)\n")
-            f.write("3. [Relatório de Fluxo de Decisões](relatorio_fluxo_decisoes.md)\n\n")
+            f.write("3. [Relatório de Fluxo de Decisões](relatorio_fluxo_decisoes.md)\n")
+            if resultados_taxa_sucesso_existem:
+                f.write("4. [Relatório de Taxa de Sucesso de Recursos](relatorio_taxa_sucesso_avancada.md)\n")
+            f.write("\n")
             
             f.write("## Visualizações\n\n")
-            f.write("### Análise por Instância\n\n")
-            f.write("![Resultados por Instância](resultados_por_instancia.png)\n\n")
-            
-            f.write("### Análise Estatística\n\n")
+            f.write("### Análise Estatística por Tribunal\n\n")
             f.write("![Taxa de Sucesso na Primeira Instância por Tribunal](taxa_sucesso_primeira_instancia.png)\n\n")
-            f.write("![Taxa de Provimento na Segunda Instância por Tribunal](taxa_provimento_segunda_instancia.png)\n\n")
+            f.write("![Evolução da Taxa de Sucesso](evolucao_taxa_sucesso_primeira_instancia.png)\n\n")
+            f.write("![Heatmap de Taxa de Sucesso](heatmap_taxa_sucesso.png)\n\n")
             
-            f.write("### Análise de Fluxo\n\n")
+            f.write("### Análise de Fluxo de Decisões\n\n")
             f.write("![Taxa de Sucesso por Instância](taxa_sucesso_por_instancia.png)\n\n")
             f.write("![Taxa de Sucesso de Recursos](taxa_sucesso_recursos.png)\n\n")
-            f.write("![Grafo de Fluxo de Decisões](grafo_fluxo_decisoes.png)\n\n")
             
-            f.write("## Conclusão\n\n")
-            f.write("Este relatório integrado apresenta uma análise abrangente dos casos de assédio moral na Justiça do Trabalho, incluindo estatísticas por tribunal e análise do fluxo de decisões através das instâncias judiciais.\n\n")
-            f.write("Os resultados mostram um padrão consistente de baixa taxa de sucesso para trabalhadores em primeira instância, alta taxa de reforma em segunda instância, e novamente baixa taxa de sucesso no TST, configurando um \"efeito sanfona\" nas decisões.\n\n")
-            f.write("Para uma análise mais detalhada, consulte os relatórios específicos listados no sumário.\n\n")
+            if resultados_taxa_sucesso_existem:
+                f.write("### Análise Avançada de Taxa de Sucesso de Recursos\n\n")
+                f.write("![Taxa de Sucesso de Recursos Avançada](taxa_sucesso_recursos.png)\n\n")
+                f.write("![Comparação de Taxa de Sucesso](comparacao_taxa_sucesso.png)\n\n")
+                f.write("![Padrões de Fluxo](padroes_fluxo.png)\n\n")
             
-            f.write(f"Relatório gerado em: {datetime.datetime.now().strftime('%Y-%m-%d')}")
+            f.write("## Principais Descobertas\n\n")
+            f.write("### Taxa de Sucesso na Primeira Instância\n")
+            f.write("- Análise detalhada por tribunal e período temporal\n")
+            f.write("- Identificação de padrões regionais e temporais\n\n")
+            
+            f.write("### Fluxo de Decisões entre Instâncias\n")
+            f.write("- Análise de reversão de decisões entre 1ª e 2ª instâncias\n")
+            f.write("- Padrões de recursos para o TST\n")
+            f.write("- Taxa de sucesso de recursos por parte (trabalhador vs empregador)\n\n")
+            
+            if resultados_taxa_sucesso_existem:
+                f.write("### Taxa de Sucesso de Recursos Avançada\n")
+                f.write("- Análise baseada em códigos de movimento da TPU/CNJ\n")
+                f.write("- Identificação precisa de quem interpôs cada recurso\n")
+                f.write("- Cadeias completas de recursos (1ª → 2ª → TST)\n")
+                f.write("- Padrões de fluxo mais comuns\n\n")
+            
+            f.write("## Metodologia\n\n")
+            f.write("### Coleta de Dados\n")
+            f.write("- Dados coletados de todos os TRTs (2-24) e TST\n")
+            f.write("- Período: 2015-2024\n")
+            f.write("- Filtros: casos de assédio moral\n\n")
+            
+            f.write("### Processamento\n")
+            f.write("- Consolidação e normalização dos dados\n")
+            f.write("- Identificação de cadeias de recursos\n")
+            f.write("- Análise de códigos de movimento\n\n")
+            
+            f.write("### Análise\n")
+            f.write("- Estatística descritiva por tribunal\n")
+            f.write("- Análise de fluxo entre instâncias\n")
+            f.write("- Taxa de sucesso de recursos com identificação de partes\n\n")
+            
+            f.write(f"Relatório gerado em: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
         
         logger.info("Relatório final integrado gerado com sucesso")
+        logger.info("Arquivos disponíveis em: relatorio_final/")
     else:
-        logger.warning("Não foi possível gerar o relatório integrado porque os diretórios de resultados não existem")
+        logger.warning("Alguns diretórios de resultados não foram encontrados")
+        if not resultados_estatisticos_existem:
+            logger.warning("Diretório 'resultados_estatisticos' não encontrado")
+        if not resultados_fluxo_existem:
+            logger.warning("Diretório 'resultados_fluxo' não encontrado")
+        if not resultados_taxa_sucesso_existem:
+            logger.warning("Diretório 'resultados_taxa_sucesso_avancada' não encontrado")
     
-    # Concluir
     logger.info(f"Sistema completo finalizado em {datetime.datetime.now()}")
 
 if __name__ == "__main__":

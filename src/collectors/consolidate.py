@@ -66,7 +66,8 @@ class DataConsolidator:
         process_numbers: Set[str] = set()
         
         for item in data:
-            numero_processo = item.get('numero_processo', '')
+            # Tenta diferentes possíveis nomes do campo
+            numero_processo = item.get('numeroProcesso', '') or item.get('numero_processo', '') or item.get('id', '')
             if numero_processo and numero_processo not in process_numbers:
                 unique_data.append(item)
                 process_numbers.add(numero_processo)
