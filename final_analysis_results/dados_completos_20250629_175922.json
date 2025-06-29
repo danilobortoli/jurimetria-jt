@@ -1,0 +1,146 @@
+{
+  "timestamp": "20250629_175922",
+  "single_cases_stats": {
+    "total": 424,
+    "by_instance": {
+      "TST": 219,
+      "Segunda Instância": 176,
+      "Primeira Instância": 29
+    },
+    "with_results": {
+      "TST_recurso": 219,
+      "Segunda Instância_recurso": 176,
+      "Primeira Instância_primeira": 29
+    },
+    "results_distribution": {
+      "TST": {
+        "Negação de Seguimento": 162,
+        "Provimento": 53,
+        "Provimento em Parte": 4
+      },
+      "Segunda Instância": {
+        "Provimento": 120,
+        "Negação de Seguimento": 1,
+        "Desprovimento": 9,
+        "Provimento em Parte": 46
+      },
+      "Primeira Instância": {
+        "Improcedência": 21,
+        "Procedência em Parte": 6,
+        "Procedência": 2
+      }
+    }
+  },
+  "chain_analysis": {
+    "summary": {
+      "total_chains": 3525,
+      "analyzable_chains": 2275,
+      "success_rate": 41.45054945054945,
+      "worker_victories": 943,
+      "worker_defeats": 1332
+    },
+    "by_flow_type": {
+      "G1→G2→TST": 2037,
+      "G2→TST": 524,
+      "Outro": 439,
+      "G1→TST": 238,
+      "G1→G2": 287
+    },
+    "by_year": {
+      "2015": {
+        "total": 243,
+        "victories": 117,
+        "defeats": 126
+      },
+      "2016": {
+        "total": 258,
+        "victories": 157,
+        "defeats": 101
+      },
+      "2014": {
+        "total": 3,
+        "victories": 2,
+        "defeats": 1
+      },
+      "2011": {
+        "total": 2,
+        "victories": 2,
+        "defeats": 0
+      },
+      "2017": {
+        "total": 271,
+        "victories": 143,
+        "defeats": 128
+      },
+      "2013": {
+        "total": 3,
+        "victories": 1,
+        "defeats": 2
+      },
+      "2018": {
+        "total": 230,
+        "victories": 112,
+        "defeats": 118
+      },
+      "2019": {
+        "total": 248,
+        "victories": 87,
+        "defeats": 161
+      },
+      "2009": {
+        "total": 2,
+        "victories": 2,
+        "defeats": 0
+      },
+      "2020": {
+        "total": 250,
+        "victories": 96,
+        "defeats": 154
+      },
+      "2021": {
+        "total": 257,
+        "victories": 92,
+        "defeats": 165
+      },
+      "2022": {
+        "total": 240,
+        "victories": 74,
+        "defeats": 166
+      },
+      "2023": {
+        "total": 213,
+        "victories": 43,
+        "defeats": 170
+      },
+      "2012": {
+        "total": 2,
+        "victories": 1,
+        "defeats": 1
+      },
+      "2024": {
+        "total": 53,
+        "victories": 14,
+        "defeats": 39
+      }
+    },
+    "by_tribunal": {
+      "TST": {
+        "total": 2275,
+        "victories": 943,
+        "defeats": 1332
+      }
+    },
+    "flow_patterns": {
+      "G1:Improcedência → TST:Negação de Seguimento": 1250,
+      "G1:Procedência → TST:Negação de Seguimento": 246,
+      "G1:Procedência em Parte → TST:Negação de Seguimento": 594,
+      "G1:Improcedência → TST:Provimento": 99,
+      "G1:Procedência em Parte → TST:Provimento": 55,
+      "G1:Procedência → TST:Provimento": 26,
+      "G1:Procedência → TST:Provimento em Parte": 1,
+      "G1:Procedência em Parte → TST:Desprovimento": 2,
+      "G1:Procedência → TST:Desprovimento": 1,
+      "G1:Improcedência → TST:Provimento em Parte": 1
+    }
+  }
+}

@@ -1,0 +1,3271 @@
+[
+  {
+    "core": "001083520155150026",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT15",
+        "numero": "00108350520155150026",
+        "resultado": {
+          "nome": "Improcedência",
+          "favoravel": false
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00108350520155150026",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Improcedência",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": false,
+    "year": "2015",
+    "path_string": "G1:Improcedência → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "000089920135040231",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G2",
+        "tribunal": "TRT4",
+        "numero": "00008999420135040231",
+        "resultado": {
+          "nome": "Provimento",
+          "provido": true
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00008999420135040231",
+        "resultado": {
+          "nome": "Provimento",
+          "provido": true
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": false,
+    "path": [
+      "G2:Provimento",
+      "SUP:Provimento"
+    ],
+    "worker_won": null,
+    "year": "2013"
+  },
+  {
+    "core": "001041720135030032",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G2",
+        "tribunal": "TRT3",
+        "numero": "00104175320135030032",
+        "resultado": {
+          "nome": "Provimento",
+          "provido": true
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00104175320135030032",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": false,
+    "path": [
+      "G2:Provimento",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": null,
+    "year": "2013"
+  },
+  {
+    "core": "001058620135010205",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G2",
+        "tribunal": "TRT1",
+        "numero": "00105866020135010205",
+        "resultado": {
+          "nome": "Provimento em Parte",
+          "provido": true
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00105866020135010205",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": false,
+    "path": [
+      "G2:Provimento em Parte",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": null,
+    "year": "2013"
+  },
+  {
+    "core": "000085320155190002",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT19",
+        "numero": "00008532820155190002",
+        "resultado": {
+          "nome": "Improcedência",
+          "favoravel": false
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00008532820155190002",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Improcedência",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": false,
+    "year": "2015",
+    "path_string": "G1:Improcedência → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "000151020115040232",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G2",
+        "tribunal": "TRT4",
+        "numero": "00015101520115040232",
+        "resultado": {
+          "nome": "Provimento",
+          "provido": true
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00015101520115040232",
+        "resultado": {
+          "nome": "Provimento",
+          "provido": true
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": false,
+    "path": [
+      "G2:Provimento",
+      "SUP:Provimento"
+    ],
+    "worker_won": null,
+    "year": "2011"
+  },
+  {
+    "core": "000072420155170006",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G2",
+        "tribunal": "TRT17",
+        "numero": "00007246520155170006",
+        "resultado": {
+          "nome": "Desprovimento",
+          "provido": false
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00007246520155170006",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": false,
+    "path": [
+      "G2:Desprovimento",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": null,
+    "year": "2015"
+  },
+  {
+    "core": "000066920155120057",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT12",
+        "numero": "00006699620155120057",
+        "resultado": {
+          "nome": "Improcedência",
+          "favoravel": false
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00006699620155120057",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Improcedência",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": false,
+    "year": "2015",
+    "path_string": "G1:Improcedência → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "000137620155100101",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G2",
+        "tribunal": "TRT10",
+        "numero": "00013768320155100101",
+        "resultado": {
+          "nome": "Desprovimento",
+          "provido": false
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00013768320155100101",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": false,
+    "path": [
+      "G2:Desprovimento",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": null,
+    "year": "2015"
+  },
+  {
+    "core": "000140820145020009",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G2",
+        "tribunal": "TRT2",
+        "numero": "00014083220145020009",
+        "resultado": {
+          "nome": "Provimento",
+          "provido": true
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00014083220145020009",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": false,
+    "path": [
+      "G2:Provimento",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": null,
+    "year": "2014"
+  },
+  {
+    "core": "002082220155040661",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT4",
+        "numero": "00208220920155040661",
+        "resultado": {
+          "nome": "Improcedência",
+          "favoravel": false
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00208220920155040661",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Improcedência",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": false,
+    "year": "2015",
+    "path_string": "G1:Improcedência → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "013088320155130010",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT13",
+        "numero": "01308839520155130010",
+        "resultado": {
+          "nome": "Improcedência",
+          "favoravel": false
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "01308839520155130010",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Improcedência",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": false,
+    "year": "2015",
+    "path_string": "G1:Improcedência → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "001019620155010207",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT1",
+        "numero": "00101961620155010207",
+        "resultado": {
+          "nome": "Improcedência",
+          "favoravel": false
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00101961620155010207",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Improcedência",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": false,
+    "year": "2015",
+    "path_string": "G1:Improcedência → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "001030320135010014",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G2",
+        "tribunal": "TRT1",
+        "numero": "00103032820135010014",
+        "resultado": {
+          "nome": "Provimento em Parte",
+          "provido": true
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00103032820135010014",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": false,
+    "path": [
+      "G2:Provimento em Parte",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": null,
+    "year": "2013"
+  },
+  {
+    "core": "000115120155060011",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G2",
+        "tribunal": "TRT6",
+        "numero": "00011515320155060011",
+        "resultado": {
+          "nome": "Provimento",
+          "provido": true
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00011515320155060011",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": false,
+    "path": [
+      "G2:Provimento",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": null,
+    "year": "2015"
+  },
+  {
+    "core": "000143220155090121",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT9",
+        "numero": "00014328320155090121",
+        "resultado": {
+          "nome": "Procedência em Parte",
+          "favoravel": true
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00014328320155090121",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Procedência em Parte",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": true,
+    "year": "2015",
+    "path_string": "G1:Procedência em Parte → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "001115820155150130",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT15",
+        "numero": "00111588620155150130",
+        "resultado": {
+          "nome": "Procedência",
+          "favoravel": true
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00111588620155150130",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Procedência",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": true,
+    "year": "2015",
+    "path_string": "G1:Procedência → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "013164120155130008",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT13",
+        "numero": "01316418020155130008",
+        "resultado": {
+          "nome": "Improcedência",
+          "favoravel": false
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "01316418020155130008",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Improcedência",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": false,
+    "year": "2015",
+    "path_string": "G1:Improcedência → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "013110420155130009",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT13",
+        "numero": "01311048120155130009",
+        "resultado": {
+          "nome": "Improcedência",
+          "favoravel": false
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "01311048120155130009",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Improcedência",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": false,
+    "year": "2015",
+    "path_string": "G1:Improcedência → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "001080320135190007",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G2",
+        "tribunal": "TRT19",
+        "numero": "00108031720135190007",
+        "resultado": {
+          "nome": "Provimento",
+          "provido": true
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00108031720135190007",
+        "resultado": {
+          "nome": "Provimento",
+          "provido": true
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": false,
+    "path": [
+      "G2:Provimento",
+      "SUP:Provimento"
+    ],
+    "worker_won": null,
+    "year": "2013"
+  },
+  {
+    "core": "000097820155140005",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT14",
+        "numero": "00009782520155140005",
+        "resultado": {
+          "nome": "Improcedência",
+          "favoravel": false
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00009782520155140005",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Improcedência",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": false,
+    "year": "2015",
+    "path_string": "G1:Improcedência → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "000110720155190005",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT19",
+        "numero": "00011078920155190005",
+        "resultado": {
+          "nome": "Procedência em Parte",
+          "favoravel": true
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00011078920155190005",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Procedência em Parte",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": true,
+    "year": "2015",
+    "path_string": "G1:Procedência em Parte → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "001054720145150108",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G2",
+        "tribunal": "TRT15",
+        "numero": "00105473920145150108",
+        "resultado": {
+          "nome": "Provimento",
+          "provido": true
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00105473920145150108",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": false,
+    "path": [
+      "G2:Provimento",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": null,
+    "year": "2014"
+  },
+  {
+    "core": "000051020165050421",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G2",
+        "tribunal": "TRT5",
+        "numero": "00005108920165050421",
+        "resultado": {
+          "nome": "Provimento",
+          "provido": true
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00005108920165050421",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": false,
+    "path": [
+      "G2:Provimento",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": null,
+    "year": "2016"
+  },
+  {
+    "core": "000003920145060017",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G2",
+        "tribunal": "TRT6",
+        "numero": "00000396520145060017",
+        "resultado": {
+          "nome": "Provimento",
+          "provido": true
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00000396520145060017",
+        "resultado": {
+          "nome": "Provimento",
+          "provido": true
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": false,
+    "path": [
+      "G2:Provimento",
+      "SUP:Provimento"
+    ],
+    "worker_won": null,
+    "year": "2014"
+  },
+  {
+    "core": "000165520165120057",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT12",
+        "numero": "00016551620165120057",
+        "resultado": {
+          "nome": "Improcedência",
+          "favoravel": false
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00016551620165120057",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Improcedência",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": false,
+    "year": "2016",
+    "path_string": "G1:Improcedência → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "001054020155030017",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT3",
+        "numero": "00105402820155030017",
+        "resultado": {
+          "nome": "Improcedência",
+          "favoravel": false
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00105402820155030017",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Improcedência",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": false,
+    "year": "2015",
+    "path_string": "G1:Improcedência → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "001092720145030042",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G2",
+        "tribunal": "TRT3",
+        "numero": "00109270220145030042",
+        "resultado": {
+          "nome": "Provimento",
+          "provido": true
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00109270220145030042",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": false,
+    "path": [
+      "G2:Provimento",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": null,
+    "year": "2014"
+  },
+  {
+    "core": "000050820165130015",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT13",
+        "numero": "00005085420165130015",
+        "resultado": {
+          "nome": "Procedência em Parte",
+          "favoravel": true
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00005085420165130015",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Procedência em Parte",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": true,
+    "year": "2016",
+    "path_string": "G1:Procedência em Parte → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "000010220165190006",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT19",
+        "numero": "00001029220165190006",
+        "resultado": {
+          "nome": "Improcedência",
+          "favoravel": false
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00001029220165190006",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Improcedência",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": false,
+    "year": "2016",
+    "path_string": "G1:Improcedência → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "000053720155020444",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G2",
+        "tribunal": "TRT2",
+        "numero": "00005372120155020444",
+        "resultado": {
+          "nome": "Provimento em Parte",
+          "provido": true
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00005372120155020444",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": false,
+    "path": [
+      "G2:Provimento em Parte",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": null,
+    "year": "2015"
+  },
+  {
+    "core": "000350920155120055",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT12",
+        "numero": "00035098520155120055",
+        "resultado": {
+          "nome": "Procedência",
+          "favoravel": true
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00035098520155120055",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Procedência",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": true,
+    "year": "2015",
+    "path_string": "G1:Procedência → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "001111920165030107",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT3",
+        "numero": "00111196020165030107",
+        "resultado": {
+          "nome": "Improcedência",
+          "favoravel": false
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00111196020165030107",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Improcedência",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": false,
+    "year": "2016",
+    "path_string": "G1:Improcedência → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "000020520165130017",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT13",
+        "numero": "00002053420165130017",
+        "resultado": {
+          "nome": "Improcedência",
+          "favoravel": false
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00002053420165130017",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Improcedência",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": false,
+    "year": "2016",
+    "path_string": "G1:Improcedência → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "000058620145030018",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G2",
+        "tribunal": "TRT3",
+        "numero": "00005868620145030018",
+        "resultado": {
+          "nome": "Provimento",
+          "provido": true
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00005868620145030018",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": false,
+    "path": [
+      "G2:Provimento",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": null,
+    "year": "2014"
+  },
+  {
+    "core": "000059320145190009",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G2",
+        "tribunal": "TRT19",
+        "numero": "00005936120145190009",
+        "resultado": {
+          "nome": "Provimento",
+          "provido": true
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00005936120145190009",
+        "resultado": {
+          "nome": "Provimento",
+          "provido": true
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": false,
+    "path": [
+      "G2:Provimento",
+      "SUP:Provimento"
+    ],
+    "worker_won": null,
+    "year": "2014"
+  },
+  {
+    "core": "000086420155060312",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT6",
+        "numero": "00008646020155060312",
+        "resultado": {
+          "nome": "Procedência",
+          "favoravel": true
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00008646020155060312",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Procedência",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": true,
+    "year": "2015",
+    "path_string": "G1:Procedência → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "000079220155090018",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT9",
+        "numero": "00007929820155090018",
+        "resultado": {
+          "nome": "Improcedência",
+          "favoravel": false
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00007929820155090018",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Improcedência",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": false,
+    "year": "2015",
+    "path_string": "G1:Improcedência → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "000000120165120029",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT12",
+        "numero": "00000017820165120029",
+        "resultado": {
+          "nome": "Improcedência",
+          "favoravel": false
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00000017820165120029",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Improcedência",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": false,
+    "year": "2016",
+    "path_string": "G1:Improcedência → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "000002120145120037",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G2",
+        "tribunal": "TRT12",
+        "numero": "00000211620145120037",
+        "resultado": {
+          "nome": "Provimento em Parte",
+          "provido": true
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00000211620145120037",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": false,
+    "path": [
+      "G2:Provimento em Parte",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": null,
+    "year": "2014"
+  },
+  {
+    "core": "000048420155020028",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT2",
+        "numero": "00004842720155020028",
+        "resultado": {
+          "nome": "Improcedência",
+          "favoravel": false
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00004842720155020028",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Improcedência",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": false,
+    "year": "2015",
+    "path_string": "G1:Improcedência → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "000149820155020008",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT2",
+        "numero": "00014980920155020008",
+        "resultado": {
+          "nome": "Improcedência",
+          "favoravel": false
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00014980920155020008",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Improcedência",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": false,
+    "year": "2015",
+    "path_string": "G1:Improcedência → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "001104720135010026",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G2",
+        "tribunal": "TRT1",
+        "numero": "00110478420135010026",
+        "resultado": {
+          "nome": "Provimento em Parte",
+          "provido": true
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00110478420135010026",
+        "resultado": {
+          "nome": "Provimento",
+          "provido": true
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": false,
+    "path": [
+      "G2:Provimento em Parte",
+      "SUP:Provimento"
+    ],
+    "worker_won": null,
+    "year": "2013"
+  },
+  {
+    "core": "000063820155040802",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT4",
+        "numero": "00006389420155040802",
+        "resultado": {
+          "nome": "Improcedência",
+          "favoravel": false
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00006389420155040802",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Improcedência",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": false,
+    "year": "2015",
+    "path_string": "G1:Improcedência → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "000041520165210023",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT21",
+        "numero": "00004154520165210023",
+        "resultado": {
+          "nome": "Improcedência",
+          "favoravel": false
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00004154520165210023",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Improcedência",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": false,
+    "year": "2016",
+    "path_string": "G1:Improcedência → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "002051420155040302",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT4",
+        "numero": "00205148020155040302",
+        "resultado": {
+          "nome": "Improcedência",
+          "favoravel": false
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00205148020155040302",
+        "resultado": {
+          "nome": "Provimento",
+          "provido": true
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Improcedência",
+      "SUP:Provimento"
+    ],
+    "worker_won": true,
+    "year": "2015",
+    "path_string": "G1:Improcedência → SUP:Provimento"
+  },
+  {
+    "core": "000102120155060018",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT6",
+        "numero": "00010214220155060018",
+        "resultado": {
+          "nome": "Improcedência",
+          "favoravel": false
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00010214220155060018",
+        "resultado": {
+          "nome": "Provimento",
+          "provido": true
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Improcedência",
+      "SUP:Provimento"
+    ],
+    "worker_won": true,
+    "year": "2015",
+    "path_string": "G1:Improcedência → SUP:Provimento"
+  },
+  {
+    "core": "001011620155030182",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT3",
+        "numero": "00101167320155030182",
+        "resultado": {
+          "nome": "Improcedência",
+          "favoravel": false
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00101167320155030182",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Improcedência",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": false,
+    "year": "2015",
+    "path_string": "G1:Improcedência → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "001153220165030143",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G2",
+        "tribunal": "TRT3",
+        "numero": "00115326220165030143",
+        "resultado": {
+          "nome": "Provimento",
+          "provido": true
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00115326220165030143",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": false,
+    "path": [
+      "G2:Provimento",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": null,
+    "year": "2016"
+  },
+  {
+    "core": "000116020155050001",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT5",
+        "numero": "00011607220155050001",
+        "resultado": {
+          "nome": "Improcedência",
+          "favoravel": false
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00011607220155050001",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Improcedência",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": false,
+    "year": "2015",
+    "path_string": "G1:Improcedência → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "002025520155040203",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT4",
+        "numero": "00202559120155040203",
+        "resultado": {
+          "nome": "Procedência",
+          "favoravel": true
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00202559120155040203",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Procedência",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": true,
+    "year": "2015",
+    "path_string": "G1:Procedência → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "000097120165120040",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT12",
+        "numero": "00009714520165120040",
+        "resultado": {
+          "nome": "Improcedência",
+          "favoravel": false
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00009714520165120040",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Improcedência",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": false,
+    "year": "2016",
+    "path_string": "G1:Improcedência → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "001139920135010071",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G2",
+        "tribunal": "TRT1",
+        "numero": "00113990420135010071",
+        "resultado": {
+          "nome": "Provimento",
+          "provido": true
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00113990420135010071",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": false,
+    "path": [
+      "G2:Provimento",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": null,
+    "year": "2013"
+  },
+  {
+    "core": "000170320165130004",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT13",
+        "numero": "00017031020165130004",
+        "resultado": {
+          "nome": "Improcedência",
+          "favoravel": false
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00017031020165130004",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Improcedência",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": false,
+    "year": "2016",
+    "path_string": "G1:Improcedência → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "001057620165030181",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT3",
+        "numero": "00105762920165030181",
+        "resultado": {
+          "nome": "Improcedência",
+          "favoravel": false
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00105762920165030181",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Improcedência",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": false,
+    "year": "2016",
+    "path_string": "G1:Improcedência → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "001005320155180102",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT18",
+        "numero": "00100537720155180102",
+        "resultado": {
+          "nome": "Procedência",
+          "favoravel": true
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00100537720155180102",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Procedência",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": true,
+    "year": "2015",
+    "path_string": "G1:Procedência → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "001103820165030012",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT3",
+        "numero": "00110380820165030012",
+        "resultado": {
+          "nome": "Procedência",
+          "favoravel": true
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00110380820165030012",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Procedência",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": true,
+    "year": "2016",
+    "path_string": "G1:Procedência → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "001006720155010007",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT1",
+        "numero": "00100672920155010007",
+        "resultado": {
+          "nome": "Improcedência",
+          "favoravel": false
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00100672920155010007",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Improcedência",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": false,
+    "year": "2015",
+    "path_string": "G1:Improcedência → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "000144320155120057",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT12",
+        "numero": "00014432920155120057",
+        "resultado": {
+          "nome": "Improcedência",
+          "favoravel": false
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00014432920155120057",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Improcedência",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": false,
+    "year": "2015",
+    "path_string": "G1:Improcedência → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "000125320145050021",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G2",
+        "tribunal": "TRT5",
+        "numero": "00012530920145050021",
+        "resultado": {
+          "nome": "Provimento",
+          "provido": true
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00012530920145050021",
+        "resultado": {
+          "nome": "Provimento",
+          "provido": true
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": false,
+    "path": [
+      "G2:Provimento",
+      "SUP:Provimento"
+    ],
+    "worker_won": null,
+    "year": "2014"
+  },
+  {
+    "core": "000175920165120040",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT12",
+        "numero": "00017595920165120040",
+        "resultado": {
+          "nome": "Procedência",
+          "favoravel": true
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00017595920165120040",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Procedência",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": true,
+    "year": "2016",
+    "path_string": "G1:Procedência → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "013068320155130023",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT13",
+        "numero": "01306834920155130023",
+        "resultado": {
+          "nome": "Improcedência",
+          "favoravel": false
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "01306834920155130023",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Improcedência",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": false,
+    "year": "2015",
+    "path_string": "G1:Improcedência → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "000074320155230005",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT23",
+        "numero": "00007430920155230005",
+        "resultado": {
+          "nome": "Improcedência",
+          "favoravel": false
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00007430920155230005",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Improcedência",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": false,
+    "year": "2015",
+    "path_string": "G1:Improcedência → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "000039620165120001",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G2",
+        "tribunal": "TRT12",
+        "numero": "00003965720165120001",
+        "resultado": {
+          "nome": "Provimento",
+          "provido": true
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00003965720165120001",
+        "resultado": {
+          "nome": "Provimento",
+          "provido": true
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": false,
+    "path": [
+      "G2:Provimento",
+      "SUP:Provimento"
+    ],
+    "worker_won": null,
+    "year": "2016"
+  },
+  {
+    "core": "001028720155010033",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G2",
+        "tribunal": "TRT1",
+        "numero": "00102874620155010033",
+        "resultado": {
+          "nome": "Provimento",
+          "provido": true
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00102874620155010033",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": false,
+    "path": [
+      "G2:Provimento",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": null,
+    "year": "2015"
+  },
+  {
+    "core": "002037620155040381",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT4",
+        "numero": "00203767020155040381",
+        "resultado": {
+          "nome": "Improcedência",
+          "favoravel": false
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00203767020155040381",
+        "resultado": {
+          "nome": "Provimento",
+          "provido": true
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Improcedência",
+      "SUP:Provimento"
+    ],
+    "worker_won": true,
+    "year": "2015",
+    "path_string": "G1:Improcedência → SUP:Provimento"
+  },
+  {
+    "core": "000086020165080015",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT8",
+        "numero": "00008605020165080015",
+        "resultado": {
+          "nome": "Procedência",
+          "favoravel": true
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00008605020165080015",
+        "resultado": {
+          "nome": "Provimento",
+          "provido": true
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Procedência",
+      "SUP:Provimento"
+    ],
+    "worker_won": false,
+    "year": "2016",
+    "path_string": "G1:Procedência → SUP:Provimento"
+  },
+  {
+    "core": "001120820165030070",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT3",
+        "numero": "00112089720165030070",
+        "resultado": {
+          "nome": "Improcedência",
+          "favoravel": false
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00112089720165030070",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Improcedência",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": false,
+    "year": "2016",
+    "path_string": "G1:Improcedência → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "000123220145020033",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G2",
+        "tribunal": "TRT2",
+        "numero": "00012327820145020033",
+        "resultado": {
+          "nome": "Provimento",
+          "provido": true
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00012327820145020033",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": false,
+    "path": [
+      "G2:Provimento",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": null,
+    "year": "2014"
+  },
+  {
+    "core": "001016220155150060",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT15",
+        "numero": "00101620720155150060",
+        "resultado": {
+          "nome": "Improcedência",
+          "favoravel": false
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00101620720155150060",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Improcedência",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": false,
+    "year": "2015",
+    "path_string": "G1:Improcedência → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "001156820135030031",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G2",
+        "tribunal": "TRT3",
+        "numero": "00115685720135030031",
+        "resultado": {
+          "nome": "Provimento",
+          "provido": true
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00115685720135030031",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": false,
+    "path": [
+      "G2:Provimento",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": null,
+    "year": "2013"
+  },
+  {
+    "core": "000109320135050121",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G2",
+        "tribunal": "TRT5",
+        "numero": "00010930920135050121",
+        "resultado": {
+          "nome": "Provimento em Parte",
+          "provido": true
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00010930920135050121",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": false,
+    "path": [
+      "G2:Provimento em Parte",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": null,
+    "year": "2013"
+  },
+  {
+    "core": "013094320155130001",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT13",
+        "numero": "01309439520155130001",
+        "resultado": {
+          "nome": "Improcedência",
+          "favoravel": false
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "01309439520155130001",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Improcedência",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": false,
+    "year": "2015",
+    "path_string": "G1:Improcedência → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "001037320155030049",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT3",
+        "numero": "00103731220155030049",
+        "resultado": {
+          "nome": "Improcedência",
+          "favoravel": false
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00103731220155030049",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Improcedência",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": false,
+    "year": "2015",
+    "path_string": "G1:Improcedência → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "000083020165140004",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT14",
+        "numero": "00008308020165140004",
+        "resultado": {
+          "nome": "Improcedência",
+          "favoravel": false
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00008308020165140004",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Improcedência",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": false,
+    "year": "2016",
+    "path_string": "G1:Improcedência → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "000130020165190061",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT19",
+        "numero": "00013009620165190061",
+        "resultado": {
+          "nome": "Improcedência",
+          "favoravel": false
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00013009620165190061",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Improcedência",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": false,
+    "year": "2016",
+    "path_string": "G1:Improcedência → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "000101120165190061",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT19",
+        "numero": "00010116620165190061",
+        "resultado": {
+          "nome": "Improcedência",
+          "favoravel": false
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00010116620165190061",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Improcedência",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": false,
+    "year": "2016",
+    "path_string": "G1:Improcedência → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "000097720155050008",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT5",
+        "numero": "00009778020155050008",
+        "resultado": {
+          "nome": "Improcedência",
+          "favoravel": false
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00009778020155050008",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Improcedência",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": false,
+    "year": "2015",
+    "path_string": "G1:Improcedência → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "000207820165130003",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT13",
+        "numero": "00020781420165130003",
+        "resultado": {
+          "nome": "Improcedência",
+          "favoravel": false
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00020781420165130003",
+        "resultado": {
+          "nome": "Provimento",
+          "provido": true
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Improcedência",
+      "SUP:Provimento"
+    ],
+    "worker_won": true,
+    "year": "2016",
+    "path_string": "G1:Improcedência → SUP:Provimento"
+  },
+  {
+    "core": "000092120165190061",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT19",
+        "numero": "00009215820165190061",
+        "resultado": {
+          "nome": "Improcedência",
+          "favoravel": false
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00009215820165190061",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Improcedência",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": false,
+    "year": "2016",
+    "path_string": "G1:Improcedência → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "000101120155190009",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT19",
+        "numero": "00010116220155190009",
+        "resultado": {
+          "nome": "Improcedência",
+          "favoravel": false
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00010116220155190009",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Improcedência",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": false,
+    "year": "2015",
+    "path_string": "G1:Improcedência → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "000005720145090012",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G2",
+        "tribunal": "TRT9",
+        "numero": "00000572020145090012",
+        "resultado": {
+          "nome": "Provimento",
+          "provido": true
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00000572020145090012",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": false,
+    "path": [
+      "G2:Provimento",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": null,
+    "year": "2014"
+  },
+  {
+    "core": "000061520155070012",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT7",
+        "numero": "00006151220155070012",
+        "resultado": {
+          "nome": "Improcedência",
+          "favoravel": false
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00006151220155070012",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Improcedência",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": false,
+    "year": "2015",
+    "path_string": "G1:Improcedência → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "000100920165190061",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT19",
+        "numero": "00010099620165190061",
+        "resultado": {
+          "nome": "Improcedência",
+          "favoravel": false
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00010099620165190061",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Improcedência",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": false,
+    "year": "2016",
+    "path_string": "G1:Improcedência → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "000186920145170006",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G2",
+        "tribunal": "TRT17",
+        "numero": "00018699320145170006",
+        "resultado": {
+          "nome": "Provimento",
+          "provido": true
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00018699320145170006",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": false,
+    "path": [
+      "G2:Provimento",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": null,
+    "year": "2014"
+  },
+  {
+    "core": "000480320155120047",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT12",
+        "numero": "00048030220155120047",
+        "resultado": {
+          "nome": "Procedência em Parte",
+          "favoravel": true
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00048030220155120047",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Procedência em Parte",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": true,
+    "year": "2015",
+    "path_string": "G1:Procedência em Parte → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "002058920155040812",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT4",
+        "numero": "00205894420155040812",
+        "resultado": {
+          "nome": "Procedência",
+          "favoravel": true
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00205894420155040812",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Procedência",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": true,
+    "year": "2015",
+    "path_string": "G1:Procedência → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "000078420165050013",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT5",
+        "numero": "00007841620165050013",
+        "resultado": {
+          "nome": "Improcedência",
+          "favoravel": false
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00007841620165050013",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Improcedência",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": false,
+    "year": "2016",
+    "path_string": "G1:Improcedência → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "001042320135120037",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G2",
+        "tribunal": "TRT12",
+        "numero": "00104239320135120037",
+        "resultado": {
+          "nome": "Provimento",
+          "provido": true
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00104239320135120037",
+        "resultado": {
+          "nome": "Provimento",
+          "provido": true
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": false,
+    "path": [
+      "G2:Provimento",
+      "SUP:Provimento"
+    ],
+    "worker_won": null,
+    "year": "2013"
+  },
+  {
+    "core": "000086620155060143",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT6",
+        "numero": "00008665220155060143",
+        "resultado": {
+          "nome": "Improcedência",
+          "favoravel": false
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00008665220155060143",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Improcedência",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": false,
+    "year": "2015",
+    "path_string": "G1:Improcedência → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "013170020155130003",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT13",
+        "numero": "01317008320155130003",
+        "resultado": {
+          "nome": "Procedência",
+          "favoravel": true
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "01317008320155130003",
+        "resultado": {
+          "nome": "Provimento",
+          "provido": true
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Procedência",
+      "SUP:Provimento"
+    ],
+    "worker_won": false,
+    "year": "2015",
+    "path_string": "G1:Procedência → SUP:Provimento"
+  },
+  {
+    "core": "000025420175130028",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT13",
+        "numero": "00002540820175130028",
+        "resultado": {
+          "nome": "Procedência em Parte",
+          "favoravel": true
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00002540820175130028",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Procedência em Parte",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": true,
+    "year": "2017",
+    "path_string": "G1:Procedência em Parte → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "000197520165130005",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT13",
+        "numero": "00019759820165130005",
+        "resultado": {
+          "nome": "Improcedência",
+          "favoravel": false
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00019759820165130005",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Improcedência",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": false,
+    "year": "2016",
+    "path_string": "G1:Improcedência → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "013004120155130026",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G2",
+        "tribunal": "TRT13",
+        "numero": "01300416720155130026",
+        "resultado": {
+          "nome": "Provimento",
+          "provido": true
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "01300416720155130026",
+        "resultado": {
+          "nome": "Provimento",
+          "provido": true
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": false,
+    "path": [
+      "G2:Provimento",
+      "SUP:Provimento"
+    ],
+    "worker_won": null,
+    "year": "2015"
+  },
+  {
+    "core": "000069320165060182",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT6",
+        "numero": "00006937120165060182",
+        "resultado": {
+          "nome": "Improcedência",
+          "favoravel": false
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00006937120165060182",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Improcedência",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": false,
+    "year": "2016",
+    "path_string": "G1:Improcedência → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "000073520155190008",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT19",
+        "numero": "00007353420155190008",
+        "resultado": {
+          "nome": "Procedência",
+          "favoravel": true
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00007353420155190008",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Procedência",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": true,
+    "year": "2015",
+    "path_string": "G1:Procedência → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "013110520155130010",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT13",
+        "numero": "01311056320155130010",
+        "resultado": {
+          "nome": "Improcedência",
+          "favoravel": false
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "01311056320155130010",
+        "resultado": {
+          "nome": "Provimento",
+          "provido": true
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Improcedência",
+      "SUP:Provimento"
+    ],
+    "worker_won": true,
+    "year": "2015",
+    "path_string": "G1:Improcedência → SUP:Provimento"
+  },
+  {
+    "core": "000033120155060016",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT6",
+        "numero": "00003311920155060016",
+        "resultado": {
+          "nome": "Improcedência",
+          "favoravel": false
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00003311920155060016",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Improcedência",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": false,
+    "year": "2015",
+    "path_string": "G1:Improcedência → SUP:Negação de Seguimento"
+  },
+  {
+    "core": "000018620155120001",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT12",
+        "numero": "00001864020155120001",
+        "resultado": {
+          "nome": "Procedência em Parte",
+          "favoravel": true
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00001864020155120001",
+        "resultado": {
+          "nome": "Provimento",
+          "provido": true
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Procedência em Parte",
+      "SUP:Provimento"
+    ],
+    "worker_won": false,
+    "year": "2015",
+    "path_string": "G1:Procedência em Parte → SUP:Provimento"
+  },
+  {
+    "core": "001123020155030038",
+    "chain_size": 2,
+    "instances": [
+      {
+        "grau": "G1",
+        "tribunal": "TRT3",
+        "numero": "00112309120155030038",
+        "resultado": {
+          "nome": "Improcedência",
+          "favoravel": false
+        }
+      },
+      {
+        "grau": "SUP",
+        "tribunal": "TST",
+        "numero": "00112309120155030038",
+        "resultado": {
+          "nome": "Negação de Seguimento",
+          "provido": false
+        }
+      }
+    ],
+    "has_tst": true,
+    "has_complete_flow": true,
+    "path": [
+      "G1:Improcedência",
+      "SUP:Negação de Seguimento"
+    ],
+    "worker_won": false,
+    "year": "2015",
+    "path_string": "G1:Improcedência → SUP:Negação de Seguimento"
+  }
+]

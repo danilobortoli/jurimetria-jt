@@ -1,0 +1,80 @@
+{
+  "total_chains": 5116,
+  "chains_with_tst": 5116,
+  "complete_flows": 3871,
+  "worker_victories": 1012,
+  "worker_defeats": 2859,
+  "undefined": 1245,
+  "by_year": {
+    "2015": {
+      "total": 325,
+      "victories": 97,
+      "defeats": 228
+    },
+    "2016": {
+      "total": 458,
+      "victories": 137,
+      "defeats": 321
+    },
+    "2017": {
+      "total": 646,
+      "victories": 196,
+      "defeats": 450
+    },
+    "2018": {
+      "total": 256,
+      "victories": 69,
+      "defeats": 187
+    },
+    "2019": {
+      "total": 379,
+      "victories": 102,
+      "defeats": 277
+    },
+    "2020": {
+      "total": 521,
+      "victories": 130,
+      "defeats": 391
+    },
+    "2021": {
+      "total": 681,
+      "victories": 152,
+      "defeats": 529
+    },
+    "2022": {
+      "total": 394,
+      "victories": 90,
+      "defeats": 304
+    },
+    "2023": {
+      "total": 190,
+      "victories": 34,
+      "defeats": 156
+    },
+    "2024": {
+      "total": 21,
+      "victories": 5,
+      "defeats": 16
+    }
+  },
+  "by_tribunal": {
+    "TST": {
+      "total": 3871,
+      "victories": 1012,
+      "defeats": 2859
+    }
+  },
+  "common_paths": {
+    "G1:Improcedência → SUP:Negação de Seguimento": 2762,
+    "G1:Procedência em Parte → SUP:Negação de Seguimento": 183,
+    "G1:Procedência → SUP:Negação de Seguimento": 597,
+    "G1:Improcedência → SUP:Provimento": 222,
+    "G1:Procedência → SUP:Provimento": 68,
+    "G1:Procedência em Parte → SUP:Provimento": 15,
+    "G1:Procedência → SUP:Provimento em Parte": 4,
+    "G1:Improcedência → SUP:Provimento em Parte": 9,
+    "G1:Improcedência → SUP:Desprovimento": 10,
+    "G1:Procedência → SUP:Desprovimento": 1
+  },
+  "worker_success_rate": 26.143115474037714
+}

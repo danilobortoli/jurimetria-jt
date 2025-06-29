@@ -1,0 +1,688 @@
+[
+  {
+    "core": "25201551",
+    "flow_type": "G1→G2→TST",
+    "instances": [
+      "Primeira Instância",
+      "Segunda Instância",
+      "TST"
+    ],
+    "year": "2015",
+    "final_tribunal": "TST",
+    "worker_won": false,
+    "flow_pattern": "G1:Improcedência → TST:Negação de Seguimento",
+    "reasoning": "Trabalhador recorreu. Trabalhador PERDEU."
+  },
+  {
+    "core": "65201550",
+    "flow_type": "G1→G2→TST",
+    "instances": [
+      "Primeira Instância",
+      "Segunda Instância",
+      "TST"
+    ],
+    "year": "2015",
+    "final_tribunal": "TST",
+    "worker_won": true,
+    "flow_pattern": "G1:Procedência → TST:Negação de Seguimento",
+    "reasoning": "Empregador recorreu. Trabalhador GANHOU."
+  },
+  {
+    "core": "76201551",
+    "flow_type": "G1→G2→TST",
+    "instances": [
+      "Primeira Instância",
+      "Segunda Instância",
+      "TST"
+    ],
+    "year": "2015",
+    "final_tribunal": "TST",
+    "worker_won": false,
+    "flow_pattern": "G1:Improcedência → TST:Negação de Seguimento",
+    "reasoning": "Trabalhador recorreu. Trabalhador PERDEU."
+  },
+  {
+    "core": "05201551",
+    "flow_type": "G1→G2→TST",
+    "instances": [
+      "Primeira Instância",
+      "Segunda Instância",
+      "TST"
+    ],
+    "year": "2015",
+    "final_tribunal": "TST",
+    "worker_won": false,
+    "flow_pattern": "G1:Improcedência → TST:Negação de Seguimento",
+    "reasoning": "Trabalhador recorreu. Trabalhador PERDEU."
+  },
+  {
+    "core": "81201551",
+    "flow_type": "G1→G2→TST",
+    "instances": [
+      "Primeira Instância",
+      "Segunda Instância",
+      "TST"
+    ],
+    "year": "2015",
+    "final_tribunal": "TST",
+    "worker_won": true,
+    "flow_pattern": "G1:Procedência em Parte → TST:Negação de Seguimento",
+    "reasoning": "Empregador recorreu. Trabalhador GANHOU."
+  },
+  {
+    "core": "48201551",
+    "flow_type": "G1→G2→TST",
+    "instances": [
+      "Primeira Instância",
+      "Segunda Instância",
+      "TST"
+    ],
+    "year": "2015",
+    "final_tribunal": "TST",
+    "worker_won": false,
+    "flow_pattern": "G1:Improcedência → TST:Negação de Seguimento",
+    "reasoning": "Trabalhador recorreu. Trabalhador PERDEU."
+  },
+  {
+    "core": "33201551",
+    "flow_type": "G1→G2→TST",
+    "instances": [
+      "Primeira Instância",
+      "Segunda Instância",
+      "TST"
+    ],
+    "year": "2015",
+    "final_tribunal": "TST",
+    "worker_won": true,
+    "flow_pattern": "G1:Procedência em Parte → TST:Negação de Seguimento",
+    "reasoning": "Empregador recorreu. Trabalhador GANHOU."
+  },
+  {
+    "core": "83201551",
+    "flow_type": "G1→G2→TST",
+    "instances": [
+      "Primeira Instância",
+      "Segunda Instância",
+      "TST"
+    ],
+    "year": "2015",
+    "final_tribunal": "TST",
+    "worker_won": true,
+    "flow_pattern": "G1:Improcedência → TST:Provimento",
+    "reasoning": "Trabalhador recorreu. Trabalhador GANHOU."
+  },
+  {
+    "core": "29201551",
+    "flow_type": "G1→G2→TST",
+    "instances": [
+      "Primeira Instância",
+      "Segunda Instância",
+      "TST"
+    ],
+    "year": "2015",
+    "final_tribunal": "TST",
+    "worker_won": true,
+    "flow_pattern": "G1:Procedência em Parte → TST:Negação de Seguimento",
+    "reasoning": "Empregador recorreu. Trabalhador GANHOU."
+  },
+  {
+    "core": "52201550",
+    "flow_type": "G1→G2→TST",
+    "instances": [
+      "Primeira Instância",
+      "Segunda Instância",
+      "TST"
+    ],
+    "year": "2015",
+    "final_tribunal": "TST",
+    "worker_won": true,
+    "flow_pattern": "G1:Procedência em Parte → TST:Negação de Seguimento",
+    "reasoning": "Empregador recorreu. Trabalhador GANHOU."
+  },
+  {
+    "core": "27201550",
+    "flow_type": "G1→G2→TST",
+    "instances": [
+      "Primeira Instância",
+      "Segunda Instância",
+      "TST"
+    ],
+    "year": "2015",
+    "final_tribunal": "TST",
+    "worker_won": true,
+    "flow_pattern": "G1:Procedência em Parte → TST:Negação de Seguimento",
+    "reasoning": "Empregador recorreu. Trabalhador GANHOU."
+  },
+  {
+    "core": "35201550",
+    "flow_type": "G1→G2→TST",
+    "instances": [
+      "Primeira Instância",
+      "Segunda Instância",
+      "TST"
+    ],
+    "year": "2015",
+    "final_tribunal": "TST",
+    "worker_won": false,
+    "flow_pattern": "G1:Improcedência → TST:Negação de Seguimento",
+    "reasoning": "Trabalhador recorreu. Trabalhador PERDEU."
+  },
+  {
+    "core": "74201550",
+    "flow_type": "G1→G2→TST",
+    "instances": [
+      "Primeira Instância",
+      "Segunda Instância",
+      "TST"
+    ],
+    "year": "2015",
+    "final_tribunal": "TST",
+    "worker_won": false,
+    "flow_pattern": "G1:Improcedência → TST:Negação de Seguimento",
+    "reasoning": "Trabalhador recorreu. Trabalhador PERDEU."
+  },
+  {
+    "core": "22201550",
+    "flow_type": "G1→G2→TST",
+    "instances": [
+      "Primeira Instância",
+      "Segunda Instância",
+      "TST"
+    ],
+    "year": "2015",
+    "final_tribunal": "TST",
+    "worker_won": false,
+    "flow_pattern": "G1:Improcedência → TST:Negação de Seguimento",
+    "reasoning": "Trabalhador recorreu. Trabalhador PERDEU."
+  },
+  {
+    "core": "60201551",
+    "flow_type": "G1→G2→TST",
+    "instances": [
+      "Primeira Instância",
+      "Segunda Instância",
+      "TST"
+    ],
+    "year": "2015",
+    "final_tribunal": "TST",
+    "worker_won": true,
+    "flow_pattern": "G1:Procedência em Parte → TST:Negação de Seguimento",
+    "reasoning": "Empregador recorreu. Trabalhador GANHOU."
+  },
+  {
+    "core": "49201651",
+    "flow_type": "G1→G2→TST",
+    "instances": [
+      "Primeira Instância",
+      "Segunda Instância",
+      "TST"
+    ],
+    "year": "2016",
+    "final_tribunal": "TST",
+    "worker_won": true,
+    "flow_pattern": "G1:Procedência → TST:Negação de Seguimento",
+    "reasoning": "Empregador recorreu. Trabalhador GANHOU."
+  },
+  {
+    "core": "31201551",
+    "flow_type": "G1→G2→TST",
+    "instances": [
+      "Primeira Instância",
+      "Segunda Instância",
+      "TST"
+    ],
+    "year": "2015",
+    "final_tribunal": "TST",
+    "worker_won": false,
+    "flow_pattern": "G1:Improcedência → TST:Negação de Seguimento",
+    "reasoning": "Trabalhador recorreu. Trabalhador PERDEU."
+  },
+  {
+    "core": "97201550",
+    "flow_type": "G1→G2→TST",
+    "instances": [
+      "Primeira Instância",
+      "Segunda Instância",
+      "TST"
+    ],
+    "year": "2015",
+    "final_tribunal": "TST",
+    "worker_won": false,
+    "flow_pattern": "G1:Improcedência → TST:Negação de Seguimento",
+    "reasoning": "Trabalhador recorreu. Trabalhador PERDEU."
+  },
+  {
+    "core": "86201550",
+    "flow_type": "G1→G2→TST",
+    "instances": [
+      "Primeira Instância",
+      "Segunda Instância",
+      "TST"
+    ],
+    "year": "2015",
+    "final_tribunal": "TST",
+    "worker_won": true,
+    "flow_pattern": "G1:Procedência → TST:Negação de Seguimento",
+    "reasoning": "Empregador recorreu. Trabalhador GANHOU."
+  },
+  {
+    "core": "61201651",
+    "flow_type": "G1→G2→TST",
+    "instances": [
+      "Primeira Instância",
+      "Segunda Instância",
+      "TST"
+    ],
+    "year": "2016",
+    "final_tribunal": "TST",
+    "worker_won": true,
+    "flow_pattern": "G1:Procedência em Parte → TST:Negação de Seguimento",
+    "reasoning": "Empregador recorreu. Trabalhador GANHOU."
+  },
+  {
+    "core": "49201551",
+    "flow_type": "G1→G2→TST",
+    "instances": [
+      "Primeira Instância",
+      "Segunda Instância",
+      "TST"
+    ],
+    "year": "2015",
+    "final_tribunal": "TST",
+    "worker_won": false,
+    "flow_pattern": "G1:Improcedência → TST:Negação de Seguimento",
+    "reasoning": "Trabalhador recorreu. Trabalhador PERDEU."
+  },
+  {
+    "core": "30201550",
+    "flow_type": "G1→G2→TST",
+    "instances": [
+      "Primeira Instância",
+      "Segunda Instância",
+      "TST"
+    ],
+    "year": "2015",
+    "final_tribunal": "TST",
+    "worker_won": true,
+    "flow_pattern": "G1:Improcedência → TST:Provimento",
+    "reasoning": "Trabalhador recorreu. Trabalhador GANHOU."
+  },
+  {
+    "core": "24201550",
+    "flow_type": "G1→G2→TST",
+    "instances": [
+      "Primeira Instância",
+      "Segunda Instância",
+      "TST"
+    ],
+    "year": "2015",
+    "final_tribunal": "TST",
+    "worker_won": false,
+    "flow_pattern": "G1:Improcedência → TST:Negação de Seguimento",
+    "reasoning": "Trabalhador recorreu. Trabalhador PERDEU."
+  },
+  {
+    "core": "26201550",
+    "flow_type": "G1→G2→TST",
+    "instances": [
+      "Primeira Instância",
+      "Segunda Instância",
+      "TST"
+    ],
+    "year": "2015",
+    "final_tribunal": "TST",
+    "worker_won": true,
+    "flow_pattern": "G1:Procedência → TST:Negação de Seguimento",
+    "reasoning": "Empregador recorreu. Trabalhador GANHOU."
+  },
+  {
+    "core": "75201450",
+    "flow_type": "G1→G2→TST",
+    "instances": [
+      "Primeira Instância",
+      "Segunda Instância",
+      "TST"
+    ],
+    "year": "2014",
+    "final_tribunal": "TST",
+    "worker_won": true,
+    "flow_pattern": "G1:Procedência em Parte → TST:Negação de Seguimento",
+    "reasoning": "Empregador recorreu. Trabalhador GANHOU."
+  },
+  {
+    "core": "31201550",
+    "flow_type": "G1→G2→TST",
+    "instances": [
+      "Primeira Instância",
+      "Segunda Instância",
+      "TST"
+    ],
+    "year": "2015",
+    "final_tribunal": "TST",
+    "worker_won": true,
+    "flow_pattern": "G1:Procedência em Parte → TST:Negação de Seguimento",
+    "reasoning": "Empregador recorreu. Trabalhador GANHOU."
+  },
+  {
+    "core": "17201650",
+    "flow_type": "G1→G2→TST",
+    "instances": [
+      "Primeira Instância",
+      "Segunda Instância",
+      "TST"
+    ],
+    "year": "2016",
+    "final_tribunal": "TST",
+    "worker_won": false,
+    "flow_pattern": "G1:Improcedência → TST:Negação de Seguimento",
+    "reasoning": "Trabalhador recorreu. Trabalhador PERDEU."
+  },
+  {
+    "core": "43201551",
+    "flow_type": "G1→G2→TST",
+    "instances": [
+      "Primeira Instância",
+      "Segunda Instância",
+      "TST"
+    ],
+    "year": "2015",
+    "final_tribunal": "TST",
+    "worker_won": true,
+    "flow_pattern": "G1:Procedência em Parte → TST:Negação de Seguimento",
+    "reasoning": "Empregador recorreu. Trabalhador GANHOU."
+  },
+  {
+    "core": "89201551",
+    "flow_type": "G1→G2→TST",
+    "instances": [
+      "Primeira Instância",
+      "Segunda Instância",
+      "TST"
+    ],
+    "year": "2015",
+    "final_tribunal": "TST",
+    "worker_won": false,
+    "flow_pattern": "G1:Improcedência → TST:Negação de Seguimento",
+    "reasoning": "Trabalhador recorreu. Trabalhador PERDEU."
+  },
+  {
+    "core": "79201551",
+    "flow_type": "G1→G2→TST",
+    "instances": [
+      "Primeira Instância",
+      "Segunda Instância",
+      "TST"
+    ],
+    "year": "2015",
+    "final_tribunal": "TST",
+    "worker_won": true,
+    "flow_pattern": "G1:Procedência em Parte → TST:Negação de Seguimento",
+    "reasoning": "Empregador recorreu. Trabalhador GANHOU."
+  },
+  {
+    "core": "51201551",
+    "flow_type": "G1→G2→TST",
+    "instances": [
+      "Primeira Instância",
+      "Segunda Instância",
+      "TST"
+    ],
+    "year": "2015",
+    "final_tribunal": "TST",
+    "worker_won": false,
+    "flow_pattern": "G1:Improcedência → TST:Negação de Seguimento",
+    "reasoning": "Trabalhador recorreu. Trabalhador PERDEU."
+  },
+  {
+    "core": "41201550",
+    "flow_type": "G1→G2→TST",
+    "instances": [
+      "Primeira Instância",
+      "Segunda Instância",
+      "TST"
+    ],
+    "year": "2015",
+    "final_tribunal": "TST",
+    "worker_won": true,
+    "flow_pattern": "G1:Procedência em Parte → TST:Negação de Seguimento",
+    "reasoning": "Empregador recorreu. Trabalhador GANHOU."
+  },
+  {
+    "core": "87201450",
+    "flow_type": "G1→G2→TST",
+    "instances": [
+      "Primeira Instância",
+      "Segunda Instância",
+      "TST"
+    ],
+    "year": "2014",
+    "final_tribunal": "TST",
+    "worker_won": true,
+    "flow_pattern": "G1:Procedência em Parte → TST:Negação de Seguimento",
+    "reasoning": "Empregador recorreu. Trabalhador GANHOU."
+  },
+  {
+    "core": "95201551",
+    "flow_type": "G1→G2→TST",
+    "instances": [
+      "Primeira Instância",
+      "Segunda Instância",
+      "TST"
+    ],
+    "year": "2015",
+    "final_tribunal": "TST",
+    "worker_won": true,
+    "flow_pattern": "G1:Improcedência → TST:Provimento",
+    "reasoning": "Trabalhador recorreu. Trabalhador GANHOU."
+  },
+  {
+    "core": "49201550",
+    "flow_type": "G1→G2→TST",
+    "instances": [
+      "Primeira Instância",
+      "Segunda Instância",
+      "TST"
+    ],
+    "year": "2015",
+    "final_tribunal": "TST",
+    "worker_won": false,
+    "flow_pattern": "G1:Improcedência → TST:Negação de Seguimento",
+    "reasoning": "Trabalhador recorreu. Trabalhador PERDEU."
+  },
+  {
+    "core": "84201550",
+    "flow_type": "G1→G2→TST",
+    "instances": [
+      "Primeira Instância",
+      "Segunda Instância",
+      "TST"
+    ],
+    "year": "2015",
+    "final_tribunal": "TST",
+    "worker_won": false,
+    "flow_pattern": "G1:Improcedência → TST:Negação de Seguimento",
+    "reasoning": "Trabalhador recorreu. Trabalhador PERDEU."
+  },
+  {
+    "core": "46201651",
+    "flow_type": "G1→G2→TST",
+    "instances": [
+      "Primeira Instância",
+      "Segunda Instância",
+      "TST"
+    ],
+    "year": "2016",
+    "final_tribunal": "TST",
+    "worker_won": false,
+    "flow_pattern": "G1:Improcedência → TST:Negação de Seguimento",
+    "reasoning": "Trabalhador recorreu. Trabalhador PERDEU."
+  },
+  {
+    "core": "40201551",
+    "flow_type": "G1→G2→TST",
+    "instances": [
+      "Primeira Instância",
+      "Segunda Instância",
+      "TST"
+    ],
+    "year": "2015",
+    "final_tribunal": "TST",
+    "worker_won": true,
+    "flow_pattern": "G1:Procedência em Parte → TST:Negação de Seguimento",
+    "reasoning": "Empregador recorreu. Trabalhador GANHOU."
+  },
+  {
+    "core": "90201551",
+    "flow_type": "G1→G2→TST",
+    "instances": [
+      "Primeira Instância",
+      "Segunda Instância",
+      "TST"
+    ],
+    "year": "2015",
+    "final_tribunal": "TST",
+    "worker_won": false,
+    "flow_pattern": "G1:Improcedência → TST:Negação de Seguimento",
+    "reasoning": "Trabalhador recorreu. Trabalhador PERDEU."
+  },
+  {
+    "core": "98201651",
+    "flow_type": "G1→G2→TST",
+    "instances": [
+      "Primeira Instância",
+      "Segunda Instância",
+      "TST"
+    ],
+    "year": "2016",
+    "final_tribunal": "TST",
+    "worker_won": true,
+    "flow_pattern": "G1:Procedência em Parte → TST:Negação de Seguimento",
+    "reasoning": "Empregador recorreu. Trabalhador GANHOU."
+  },
+  {
+    "core": "80201550",
+    "flow_type": "G1→G2→TST",
+    "instances": [
+      "Primeira Instância",
+      "Segunda Instância",
+      "TST"
+    ],
+    "year": "2015",
+    "final_tribunal": "TST",
+    "worker_won": false,
+    "flow_pattern": "G1:Procedência em Parte → TST:Provimento",
+    "reasoning": "Empregador recorreu. Trabalhador PERDEU."
+  },
+  {
+    "core": "52201551",
+    "flow_type": "G1→G2→TST",
+    "instances": [
+      "Primeira Instância",
+      "Segunda Instância",
+      "TST"
+    ],
+    "year": "2015",
+    "final_tribunal": "TST",
+    "worker_won": false,
+    "flow_pattern": "G1:Improcedência → TST:Negação de Seguimento",
+    "reasoning": "Trabalhador recorreu. Trabalhador PERDEU."
+  },
+  {
+    "core": "56201551",
+    "flow_type": "G1→G2→TST",
+    "instances": [
+      "Primeira Instância",
+      "Segunda Instância",
+      "TST"
+    ],
+    "year": "2015",
+    "final_tribunal": "TST",
+    "worker_won": false,
+    "flow_pattern": "G1:Improcedência → TST:Negação de Seguimento",
+    "reasoning": "Trabalhador recorreu. Trabalhador PERDEU."
+  },
+  {
+    "core": "29201550",
+    "flow_type": "G1→G2→TST",
+    "instances": [
+      "Primeira Instância",
+      "Segunda Instância",
+      "TST"
+    ],
+    "year": "2015",
+    "final_tribunal": "TST",
+    "worker_won": false,
+    "flow_pattern": "G1:Procedência em Parte → TST:Provimento",
+    "reasoning": "Empregador recorreu. Trabalhador PERDEU."
+  },
+  {
+    "core": "06201551",
+    "flow_type": "G1→G2→TST",
+    "instances": [
+      "Primeira Instância",
+      "Segunda Instância",
+      "TST"
+    ],
+    "year": "2015",
+    "final_tribunal": "TST",
+    "worker_won": false,
+    "flow_pattern": "G1:Improcedência → TST:Negação de Seguimento",
+    "reasoning": "Trabalhador recorreu. Trabalhador PERDEU."
+  },
+  {
+    "core": "94201551",
+    "flow_type": "G1→G2→TST",
+    "instances": [
+      "Primeira Instância",
+      "Segunda Instância",
+      "TST"
+    ],
+    "year": "2015",
+    "final_tribunal": "TST",
+    "worker_won": false,
+    "flow_pattern": "G1:Improcedência → TST:Negação de Seguimento",
+    "reasoning": "Trabalhador recorreu. Trabalhador PERDEU."
+  },
+  {
+    "core": "28201551",
+    "flow_type": "G1→G2→TST",
+    "instances": [
+      "Primeira Instância",
+      "Segunda Instância",
+      "TST"
+    ],
+    "year": "2015",
+    "final_tribunal": "TST",
+    "worker_won": false,
+    "flow_pattern": "G1:Improcedência → TST:Negação de Seguimento",
+    "reasoning": "Trabalhador recorreu. Trabalhador PERDEU."
+  },
+  {
+    "core": "15201550",
+    "flow_type": "G1→G2→TST",
+    "instances": [
+      "Primeira Instância",
+      "Segunda Instância",
+      "TST"
+    ],
+    "year": "2015",
+    "final_tribunal": "TST",
+    "worker_won": true,
+    "flow_pattern": "G1:Procedência em Parte → TST:Negação de Seguimento",
+    "reasoning": "Empregador recorreu. Trabalhador GANHOU."
+  },
+  {
+    "core": "36201551",
+    "flow_type": "G1→G2→TST",
+    "instances": [
+      "Primeira Instância",
+      "Segunda Instância",
+      "TST"
+    ],
+    "year": "2015",
+    "final_tribunal": "TST",
+    "worker_won": true,
+    "flow_pattern": "G1:Procedência → TST:Negação de Seguimento",
+    "reasoning": "Empregador recorreu. Trabalhador GANHOU."
+  }
+]

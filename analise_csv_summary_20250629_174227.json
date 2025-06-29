@@ -1,0 +1,10 @@
+{
+  "timestamp": "20250629_174227",
+  "total_registros": 138200,
+  "cores_unicos": 133084,
+  "cadeias_multiinstancia": 5116,
+  "casos_multiplos_arquivos": 5116,
+  "casos_tribunais_diferentes": 5116,
+  "fluxos_completos_g1_g2_tst": 0,
+  "fluxos_g1_tst": 3871
+}

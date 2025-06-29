@@ -1,0 +1,306 @@
+{
+  "exact_results": {
+    "total_numbers": 133053,
+    "multi_instance_count": 5115,
+    "chain_patterns": {
+      "G1→SUP": 10,
+      "G2→SUP": 10
+    },
+    "complete_chains": 0,
+    "examples": {
+      "G1→SUP": [
+        [
+          "00108350520155150026",
+          [
+            {
+              "numero_processo": "00108350520155150026",
+              "numero_core": "001083520155150026",
+              "ano_processo": "2015",
+              "tribunal": "TST",
+              "grau": "SUP",
+              "instancia_normalizada": "TST",
+              "data_ajuizamento": "2017-03-29T10:02:57.000Z",
+              "resultado_campo": "Desprovido",
+              "classe": "Agravo de Instrumento em Recurso de Revista",
+              "assuntos_principais": "Assédio Moral | Honorários Advocatícios | Assédio Moral",
+              "eh_assedio_moral": "True",
+              "total_movimentos": "22",
+              "tem_resultado_primeira": "False",
+              "resultado_primeira_codigo": "",
+              "resultado_primeira_nome": "",
+              "tem_resultado_recurso": "True",
+              "resultado_recurso_codigo": "236",
+              "resultado_recurso_nome": "Negação de Seguimento",
+              "arquivo_origem": "tst_20250628_201708.json"
+            },
+            {
+              "numero_processo": "00108350520155150026",
+              "numero_core": "001083520155150026",
+              "ano_processo": "2015",
+              "tribunal": "TRT15",
+              "grau": "G1",
+              "instancia_normalizada": "Primeira Instância",
+              "data_ajuizamento": "2015-05-19T09:21:19.000Z",
+              "resultado_campo": "Não classificado",
+              "classe": "Ação Trabalhista - Rito Ordinário",
+              "assuntos_principais": "Divisor | Adicional de Hora Extra | Restituição/Indenização de Despesas",
+              "eh_assedio_moral": "True",
+              "total_movimentos": "28",
+              "tem_resultado_primeira": "True",
+              "resultado_primeira_codigo": "220",
+              "resultado_primeira_nome": "Improcedência",
+              "tem_resultado_recurso": "False",
+              "resultado_recurso_codigo": "",
+              "resultado_recurso_nome": "",
+              "arquivo_origem": "trt15_20250628_180936.json"
+            }
+          ]
+        ],
+        [
+          "00008532820155190002",
+          [
+            {
+              "numero_processo": "00008532820155190002",
+              "numero_core": "000085320155190002",
+              "ano_processo": "2015",
+              "tribunal": "TST",
+              "grau": "SUP",
+              "instancia_normalizada": "TST",
+              "data_ajuizamento": "2017-02-17T14:25:05.000Z",
+              "resultado_campo": "Desprovido",
+              "classe": "Agravo de Instrumento em Recurso de Revista",
+              "assuntos_principais": "Assédio Moral | Indenização | Multa de 40% do FGTS",
+              "eh_assedio_moral": "True",
+              "total_movimentos": "50",
+              "tem_resultado_primeira": "False",
+              "resultado_primeira_codigo": "",
+              "resultado_primeira_nome": "",
+              "tem_resultado_recurso": "True",
+              "resultado_recurso_codigo": "236",
+              "resultado_recurso_nome": "Negação de Seguimento",
+              "arquivo_origem": "tst_20250628_201708.json"
+            },
+            {
+              "numero_processo": "00008532820155190002",
+              "numero_core": "000085320155190002",
+              "ano_processo": "2015",
+              "tribunal": "TRT19",
+              "grau": "G1",
+              "instancia_normalizada": "Primeira Instância",
+              "data_ajuizamento": "2015-06-30T11:19:38.000Z",
+              "resultado_campo": "Não classificado",
+              "classe": "Ação Trabalhista - Rito Ordinário",
+              "assuntos_principais": "Contrato de Experiência - Nulidade | Anotação/Baixa/Retificação | Depósito/Diferenças",
+              "eh_assedio_moral": "True",
+              "total_movimentos": "148",
+              "tem_resultado_primeira": "True",
+              "resultado_primeira_codigo": "220",
+              "resultado_primeira_nome": "Improcedência",
+              "tem_resultado_recurso": "False",
+              "resultado_recurso_codigo": "",
+              "resultado_recurso_nome": "",
+              "arquivo_origem": "trt19_20250628_183536.json"
+            }
+          ]
+        ],
+        [
+          "00006699620155120057",
+          [
+            {
+              "numero_processo": "00006699620155120057",
+              "numero_core": "000066920155120057",
+              "ano_processo": "2015",
+              "tribunal": "TST",
+              "grau": "SUP",
+              "instancia_normalizada": "TST",
+              "data_ajuizamento": "2017-01-12T22:09:14.000Z",
+              "resultado_campo": "Desprovido",
+              "classe": "Agravo de Instrumento em Recurso de Revista",
+              "assuntos_principais": "Assédio Moral | Intervalo Intrajornada | Indenização por Dano Moral",
+              "eh_assedio_moral": "True",
+              "total_movimentos": "62",
+              "tem_resultado_primeira": "False",
+              "resultado_primeira_codigo": "",
+              "resultado_primeira_nome": "",
+              "tem_resultado_recurso": "True",
+              "resultado_recurso_codigo": "236",
+              "resultado_recurso_nome": "Negação de Seguimento",
+              "arquivo_origem": "tst_20250628_201708.json"
+            },
+            {
+              "numero_processo": "00006699620155120057",
+              "numero_core": "000066920155120057",
+              "ano_processo": "2015",
+              "tribunal": "TRT12",
+              "grau": "G1",
+              "instancia_normalizada": "Primeira Instância",
+              "data_ajuizamento": "2015-06-01T14:50:12.000Z",
+              "resultado_campo": "Não classificado",
+              "classe": "Ação Trabalhista - Rito Ordinário",
+              "assuntos_principais": "Horas Extras | Assédio Moral",
+              "eh_assedio_moral": "True",
+              "total_movimentos": "52",
+              "tem_resultado_primeira": "True",
+              "resultado_primeira_codigo": "220",
+              "resultado_primeira_nome": "Improcedência",
+              "tem_resultado_recurso": "False",
+              "resultado_recurso_codigo": "",
+              "resultado_recurso_nome": "",
+              "arquivo_origem": "trt12_20250628_175043.json"
+            }
+          ]
+        ]
+      ],
+      "G2→SUP": [
+        [
+          "00008999420135040231",
+          [
+            {
+              "numero_processo": "00008999420135040231",
+              "numero_core": "000089920135040231",
+              "ano_processo": "2013",
+              "tribunal": "TST",
+              "grau": "SUP",
+              "instancia_normalizada": "TST",
+              "data_ajuizamento": "2017-03-17T13:46:47.000Z",
+              "resultado_campo": "Provido",
+              "classe": "Recurso de Revista com Agravo",
+              "assuntos_principais": "Assédio Moral | Indenizaçao por Dano Moral | Honorários Advocatícios",
+              "eh_assedio_moral": "True",
+              "total_movimentos": "29",
+              "tem_resultado_primeira": "False",
+              "resultado_primeira_codigo": "",
+              "resultado_primeira_nome": "",
+              "tem_resultado_recurso": "True",
+              "resultado_recurso_codigo": "237",
+              "resultado_recurso_nome": "Provimento",
+              "arquivo_origem": "tst_20250628_201708.json"
+            },
+            {
+              "numero_processo": "00008999420135040231",
+              "numero_core": "000089920135040231",
+              "ano_processo": "2013",
+              "tribunal": "TRT4",
+              "grau": "G2",
+              "instancia_normalizada": "Segunda Instância",
+              "data_ajuizamento": "2018-10-03T12:52:10.000Z",
+              "resultado_campo": "Provido",
+              "classe": "Agravo de Petição",
+              "assuntos_principais": "Depósito/Diferenças | Adicional Noturno | Horas Extras",
+              "eh_assedio_moral": "True",
+              "total_movimentos": "35",
+              "tem_resultado_primeira": "False",
+              "resultado_primeira_codigo": "",
+              "resultado_primeira_nome": "",
+              "tem_resultado_recurso": "True",
+              "resultado_recurso_codigo": "238",
+              "resultado_recurso_nome": "Provimento em Parte",
+              "arquivo_origem": "trt4_20250628_170117.json"
+            }
+          ]
+        ],
+        [
+          "00104175320135030032",
+          [
+            {
+              "numero_processo": "00104175320135030032",
+              "numero_core": "001041720135030032",
+              "ano_processo": "2013",
+              "tribunal": "TST",
+              "grau": "SUP",
+              "instancia_normalizada": "TST",
+              "data_ajuizamento": "2017-03-16T16:18:41.000Z",
+              "resultado_campo": "Desprovido",
+              "classe": "Agravo",
+              "assuntos_principais": "Assédio Moral",
+              "eh_assedio_moral": "True",
+              "total_movimentos": "45",
+              "tem_resultado_primeira": "False",
+              "resultado_primeira_codigo": "",
+              "resultado_primeira_nome": "",
+              "tem_resultado_recurso": "True",
+              "resultado_recurso_codigo": "236",
+              "resultado_recurso_nome": "Negação de Seguimento",
+              "arquivo_origem": "tst_20250628_201708.json"
+            },
+            {
+              "numero_processo": "00104175320135030032",
+              "numero_core": "001041720135030032",
+              "ano_processo": "2013",
+              "tribunal": "TRT3",
+              "grau": "G2",
+              "instancia_normalizada": "Segunda Instância",
+              "data_ajuizamento": "2016-04-06T00:00:00.000Z",
+              "resultado_campo": "Provido",
+              "classe": "Recurso Ordinário Trabalhista",
+              "assuntos_principais": "Assédio Moral",
+              "eh_assedio_moral": "True",
+              "total_movimentos": "32",
+              "tem_resultado_primeira": "False",
+              "resultado_primeira_codigo": "",
+              "resultado_primeira_nome": "",
+              "tem_resultado_recurso": "True",
+              "resultado_recurso_codigo": "237",
+              "resultado_recurso_nome": "Provimento",
+              "arquivo_origem": "trt3_20250628_165209.json"
+            }
+          ]
+        ],
+        [
+          "00105866020135010205",
+          [
+            {
+              "numero_processo": "00105866020135010205",
+              "numero_core": "001058620135010205",
+              "ano_processo": "2013",
+              "tribunal": "TST",
+              "grau": "SUP",
+              "instancia_normalizada": "TST",
+              "data_ajuizamento": "2017-03-13T13:57:31.000Z",
+              "resultado_campo": "Desprovido",
+              "classe": "Recurso de Revista com Agravo",
+              "assuntos_principais": "Assédio Moral | Turno Ininterrupto de Revezamento | Aplicabilidade",
+              "eh_assedio_moral": "True",
+              "total_movimentos": "22",
+              "tem_resultado_primeira": "False",
+              "resultado_primeira_codigo": "",
+              "resultado_primeira_nome": "",
+              "tem_resultado_recurso": "True",
+              "resultado_recurso_codigo": "236",
+              "resultado_recurso_nome": "Negação de Seguimento",
+              "arquivo_origem": "tst_20250628_201708.json"
+            },
+            {
+              "numero_processo": "00105866020135010205",
+              "numero_core": "001058620135010205",
+              "ano_processo": "2013",
+              "tribunal": "TRT1",
+              "grau": "G2",
+              "instancia_normalizada": "Segunda Instância",
+              "data_ajuizamento": "2020-01-27T08:27:03.000Z",
+              "resultado_campo": "Provido",
+              "classe": "Recurso Ordinário Trabalhista",
+              "assuntos_principais": "Assédio Moral | Terceirização/Tomador de Serviços | Horas Extras",
+              "eh_assedio_moral": "True",
+              "total_movimentos": "222",
+              "tem_resultado_primeira": "False",
+              "resultado_primeira_codigo": "",
+              "resultado_primeira_nome": "",
+              "tem_resultado_recurso": "True",
+              "resultado_recurso_codigo": "237",
+              "resultado_recurso_nome": "Provimento",
+              "arquivo_origem": "trt1_20250628_200616.json"
+            }
+          ]
+        ]
+      ]
+    }
+  },
+  "variations_count": 0,
+  "common_numbers_count": 5115,
+  "sampling_results": {
+    "total_files": 253,
+    "tst_files": 3,
+    "trt_files": 250
+  }
+}

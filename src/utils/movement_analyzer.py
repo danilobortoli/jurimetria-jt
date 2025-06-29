@@ -26,6 +26,9 @@ class MovementAnalyzer:
             236: "Negação de Seguimento",
             238: "Provimento em Parte",
             
+            # Reforma de decisões - CRÍTICO para análise de mérito
+            190: "Reforma de Decisão Anterior",
+            
             # Outros tipos relevantes
             471: "Homologação de Acordo",
             466: "Extinção sem Resolução de Mérito",
@@ -74,8 +77,8 @@ class MovementAnalyzer:
         if not movimentos or not isinstance(movimentos, list):
             return None
         
-        # Prioridade: códigos de mérito primeiro
-        priority_codes = [219, 220, 221, 237, 238, 242, 236]
+        # Prioridade: códigos de mérito primeiro (190 adicionado para reformas)
+        priority_codes = [190, 219, 220, 221, 237, 238, 242, 236]
         
         # Procura por códigos prioritários primeiro
         for priority_code in priority_codes:
@@ -93,6 +96,76 @@ class MovementAnalyzer:
                     return (self.movement_codes[codigo], codigo)
         
         return None
+    
+    def extract_complementos_data(self, movimento: Dict) -> Optional[Dict[str, Any]]:
+        """
+        Extrai dados dos complementosTabelados de um movimento.
+        
+        Args:
+            movimento: Dicionário com dados do movimento
+            
+        Returns:
+            Dicionário com dados dos complementos ou None se não houver
+        """
+        complementos = movimento.get('complementosTabelados', [])
+        if not complementos:
+            return None
+        
+        dados_complementos = {}
+        for complemento in complementos:
+            nome = complemento.get('nome', '')
+            descricao = complemento.get('descricao', '')
+            valor = complemento.get('valor')
+            codigo = complemento.get('codigo')
+            
+            # Armazena dados relevantes dos complementos
+            if nome or descricao:
+                chave = descricao if descricao else nome
+                dados_complementos[chave] = {
+                    'valor': valor,
+                    'codigo': codigo,
+                    'nome': nome,
+                    'descricao': descricao
+                }
+        
+        return dados_complementos if dados_complementos else None
+    
+    def analyze_reforma_decisions(self, movimentos: List[Dict]) -> Dict[str, Any]:
+        """
+        Analisa movimentos de reforma de decisão (código 190).
+        
+        Args:
+            movimentos: Lista de movimentos do processo
+            
+        Returns:
+            Análise das reformas encontradas
+        """
+        reformas = []
+        
+        for movimento in movimentos:
+            if movimento.get('codigo') == 190:
+                complementos = self.extract_complementos_data(movimento)
+                
+                reforma_info = {
+                    'codigo': 190,
+                    'nome': movimento.get('nome', 'Reforma de Decisão Anterior'),
+                    'dataHora': movimento.get('dataHora'),
+                    'complementos': complementos
+                }
+                
+                # Tenta identificar o tipo da decisão reformada
+                if complementos:
+                    for chave, dados in complementos.items():
+                        if 'decisao' in chave.lower() or 'tipo' in chave.lower():
+                            reforma_info['tipo_decisao_anterior'] = dados
+                
+                reformas.append(reforma_info)
+        
+        return {
+            'total_reformas': len(reformas),
+            'reformas_detalhadas': reformas,
+            'tem_reforma': len(reformas) > 0
+        }
     
     def classify_result_outcome(self, resultado_codigo: int, instancia: str) -> str:
         """
